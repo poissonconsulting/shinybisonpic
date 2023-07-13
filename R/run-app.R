@@ -2,7 +2,6 @@
 #'
 #' This function will launch the app locally.
 #'
-#' @return
 #' @export
 #'
 #' @examples
