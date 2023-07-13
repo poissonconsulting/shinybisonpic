@@ -1,2 +1,19 @@
+
 # shinybisonpic
-Shiny app to upload, view and download the data needed for modelling Wood Bison Demographic data. 
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of shinybisonpic is to ...
+
+## Installation
+
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(shinybisonpic)
+## basic example code
+```
