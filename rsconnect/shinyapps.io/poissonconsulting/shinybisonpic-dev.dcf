@@ -1,0 +1,11 @@
+name: shinybisonpic-dev
+title:
+username:
+account: poissonconsulting
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 9453963
+bundleId: 7454574
+url: https://poissonconsulting.shinyapps.io/shinybisonpic-dev/
+when: 1689290259.67383
+lastSyncTime: 1689290259.67384
