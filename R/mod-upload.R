@@ -140,6 +140,7 @@ mod_upload_server <- function(id) {
       })
     })
 
+    return(rv)
 
   })
 }
