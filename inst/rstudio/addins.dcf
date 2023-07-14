@@ -1,0 +1,4 @@
+Name: Start bboushiny app
+Description: Survival, recruitment and population growth analysis for boreal caribou
+Binding: bboushiny_addin
+Interactive: true
