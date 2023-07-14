@@ -4,7 +4,10 @@ mod_upload_ui <- function(id, label = "upload") {
 
   instructions <- bs4Dash::box(
     width = 12,
-    title = "Upload data",
+    title = shinyhelper::helper(
+      div(HTML(glue::glue("Upload data &nbsp &nbsp &nbsp"))),
+      content = "upload"
+    ),
     br(),
     tags$label("1. Download template"), br(),
     downloadButton(ns("download_template"), "XLSX"),
@@ -25,10 +28,6 @@ mod_upload_server <- function(id) {
   moduleServer(id, function(input, output, session) {
 
     ns <- session$ns
-
-    shinyhelper::observe_helpers(
-      help_dir = system.file("helpfiles", package = "shinybisonpic")
-    )
 
     rv <- reactiveValues(
       data = NULL
@@ -88,7 +87,6 @@ mod_upload_server <- function(id) {
         )
       )
 
-
       upload_tabs <- lapply(sheets, function(i) {
         shiny::tabPanel(
           title = i,
@@ -114,7 +112,6 @@ mod_upload_server <- function(id) {
     # display template
     observe({
       template_mod <- lapply(template_bison, template_human)
-
       lapply(sheets, function(x) {
         output[[glue::glue("template_table_{x}")]] <- DT::renderDT({
           template_table(template_mod[[x]])
@@ -130,7 +127,6 @@ mod_upload_server <- function(id) {
         readxl::read_excel(input$upload$datapath, sheet = x, na = c("", "NA"))
       })
       names(data) <- sheets
-      #data <- set_names(data, sheets)
       rv$data <- data
       ### TODO checks
       rv$data <- data
@@ -143,7 +139,6 @@ mod_upload_server <- function(id) {
         })
       })
     })
-
 
 
   })

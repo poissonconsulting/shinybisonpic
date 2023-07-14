@@ -1,5 +1,9 @@
 app_server <- function(input, output, session) {
 
+  shinyhelper::observe_helpers(
+    help_dir = system.file("helpfiles", package = "shinybisonpic")
+  )
+
   data <- mod_upload_server(
     "mod_upload_ui"
   )
