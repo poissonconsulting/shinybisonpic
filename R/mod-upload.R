@@ -113,7 +113,7 @@ mod_upload_server <- function(id) {
 
     # display template
     observe({
-      template_mod <- lapply(template_bison, chktemplate::template_human)
+      template_mod <- lapply(template_bison, template_human)
 
       lapply(sheets, function(x) {
         output[[glue::glue("template_table_{x}")]] <- DT::renderDT({
