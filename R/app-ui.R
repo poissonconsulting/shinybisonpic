@@ -1,6 +1,7 @@
 app_ui <- function() {
   dashboardPage(
     dark = NULL,
+    help = NULL,
     scrollToTop = TRUE,
     controlbar = NULL,
     footer = NULL,
@@ -47,6 +48,7 @@ app_ui <- function() {
       )
     ),
     body = dashboardBody(
+      css_styling(),
       tabItems(
         tabItem(
           tabName = "upload",
@@ -72,6 +74,17 @@ app_ui <- function() {
           tabName = "about",
           mod_about_ui("mod_about_ui")
         )
+      )
+    ),
+    freshTheme = fresh::create_theme(
+      fresh::bs4dash_layout(main_bg = "#bfa89e"),
+      fresh::bs4dash_sidebar_light(
+        bg = "#fff1e6",
+        submenu_bg = "#fff1e6"
+      ),
+      fresh::bs4dash_status(
+        primary = "#588157",
+        light = "#bfa89e"
       )
     )
   )
