@@ -11,5 +11,10 @@ What the package does (one paragraph).
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
 
+Other contributors:
+\itemize{
+  \item Alberta Environment and Parks [copyright holder]
+}
+
 }
 \keyword{internal}
