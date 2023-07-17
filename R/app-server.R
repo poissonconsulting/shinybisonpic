@@ -14,12 +14,12 @@ app_server <- function(input, output, session) {
   )
 
   mod_plot_server(
-    "mod_plot_server",
+    "mod_plot_ui",
     data
   )
 
   mod_download_server(
-    "mod_download_server",
+    "mod_download_ui",
     data
   )
 
