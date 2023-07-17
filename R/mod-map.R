@@ -2,9 +2,15 @@ mod_map_ui <- function(id, label = "map") {
 
   ns <- NS(id)
 
-  fluidRow(
-    column(width = 12, leaflet::leafletOutput(ns("leaflet")))
+  instructions <- bs4Dash::box(
+    width = 12
   )
+
+  fluidRow(
+    column(width = 2, instructions),
+    column(width = 10, leaflet::leafletOutput(ns("leaflet")))
+  )
+
 
 }
 
@@ -14,15 +20,13 @@ mod_map_server <- function(id, upload) {
 
     ns <- session$ns
 
+
     rv <- reactiveValues(
       location = NULL
     )
 
     observe({
-      print(upload$data)
-
       rv$location <- upload$data$Locations
-
     })
 
     # display map
@@ -48,20 +52,21 @@ mod_map_server <- function(id, upload) {
           lng = -114.814755,
           zoom = 5,
         )
-
-      #|>
-        # leaflet::addCircleMarkers(data = rv$location$location_id,
-        #                           lng = rv$location$longitude,
-        #                           lat = rv$location$latitude,
-        #                           label = rv$location$location_id,
-        #                           layerId = rv$location$location_id,
-        #                           fill = TRUE,
-        #                           radius = 4.5,
-        #                           color = "#fde725"
-        # )
     })
 
+    observe({
+      req(rv$location)
 
+      proxy <- leaflet::leafletProxy(ns("leaflet"))
+      proxy <- proxy |>
+        leaflet::addMarkers(
+          #data = rv$location$location_id,
+          lng =  -114.814755, #rv$location$longitude,
+          lat = 54.549608, #rv$location$latitude,
+          label = "siteA", #rv$location$location_id,
+          popup = "site"
+        )
+    })
 
 
 
