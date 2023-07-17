@@ -28,7 +28,7 @@ mod_map_server <- function(id, upload) {
 
     # display map
     output$leaflet <- leaflet::renderLeaflet({
-      leaflet::leaflet() %>%
+      leaflet::leaflet() |>
         leaflet::addProviderTiles(
           "Esri.WorldImagery",
           options = leaflet::providerTileOptions(opacity = 1),
