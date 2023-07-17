@@ -21,6 +21,7 @@ Imports:
     fresh,
     glue,
     leaflet,
+    leafpop,
     readxl,
     shiny,
     shinyhelper,

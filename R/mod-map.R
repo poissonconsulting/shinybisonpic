@@ -11,15 +11,12 @@ mod_map_ui <- function(id, label = "map") {
     column(width = 10, leaflet::leafletOutput(ns("leaflet")))
   )
 
-
 }
-
 
 mod_map_server <- function(id, upload) {
   moduleServer(id, function(input, output, session) {
 
     ns <- session$ns
-
 
     rv <- reactiveValues(
       location = NULL
@@ -54,22 +51,23 @@ mod_map_server <- function(id, upload) {
         )
     })
 
+    outputOptions(output, "leaflet", suspendWhenHidden = FALSE)
+
     observe({
       req(rv$location)
 
       proxy <- leaflet::leafletProxy(ns("leaflet"))
       proxy <- proxy |>
         leaflet::addMarkers(
-          #data = rv$location$location_id,
-          lng =  -114.814755, #rv$location$longitude,
-          lat = 54.549608, #rv$location$latitude,
-          label = "siteA", #rv$location$location_id,
-          popup = "site"
+          lng =  rv$location$longitude,
+          lat = rv$location$latitude,
+          label = rv$location$location_id,
+          popup = leafpop::popupTable(
+            as.data.frame(rv$location),
+            row.numbers = FALSE
+          )
         )
     })
-
-
-
 
   })
 }
