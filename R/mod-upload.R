@@ -30,7 +30,8 @@ mod_upload_server <- function(id) {
     ns <- session$ns
 
     rv <- reactiveValues(
-      data = NULL
+      data = NULL,
+      template_dl = NULL
     )
 
     # read in template
@@ -43,16 +44,21 @@ mod_upload_server <- function(id) {
     names(template_bison) <- sheets
 
     # download template
-    template_dl <- lapply(template_bison, function(x) {
-      x$name <- NULL
-      x <- x[0,]
-      x
+    observe({
+      template_dl <- lapply(template_bison, function(x) {
+        x$name <- NULL
+        x <- x[0,]
+        x
+      })
+
+      rv$template_dl <- template_dl
     })
+
 
     output$download_template <- downloadHandler(
       filename = "template-bison.xlsx",
       content = function(file) {
-        writexl::write_xlsx(template_dl, file)
+        writexl::write_xlsx(rv$template_dl, file)
       }
     )
 

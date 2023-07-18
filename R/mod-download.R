@@ -2,15 +2,102 @@ mod_download_ui <- function(id, label = "download") {
 
   ns <- NS(id)
 
-  box()
+  instructions <- bs4Dash::box(
+    width = 12,
+    title = shinyhelper::helper(
+      div(HTML(glue::glue("Download data &nbsp &nbsp &nbsp"))),
+      content = "download"
+    ),
+    br(),
+    tags$label("1. Download Data"), br(),
+    downloadButton(ns("download_template"), "XLSX")
+  )
+
+  fluidRow(
+    column(width = 4, instructions),
+    column(width = 8, uiOutput(ns("ui_table")))
+  )
 
 }
 
 
-mod_download_server <- function(id, data) {
+mod_download_server <- function(id, upload) {
   moduleServer(id, function(input, output, session) {
 
     ns <- session$ns
+
+    rv <- reactiveValues(
+      location = NULL,
+      event = NULL,
+      data = NULL
+    )
+
+    observe({
+      rv$location <- upload$data$Locations
+      rv$event <- upload$data$Events
+
+      rv$data <- list(
+        Events = rv$event,
+        Locations = rv$location
+      )
+
+    })
+
+    output$download_template <- downloadHandler(
+      filename = function() {
+        time_stamp <- format(Sys.time(), format = "%F %T", tz = "PST8PDT")
+        time_stamp <- stringr::str_replace(time_stamp, " ", "_")
+        time_stamp <- stringr::str_replace_all(time_stamp, ":", "-")
+        paste0(time_stamp, "_bison-data", ".xlsx")
+      },
+
+      content = function(file) {
+
+        if (length(rv$data$Events) == 0) {
+          print("here1")
+          writexl::write_xlsx(upload$template_dl, file)
+        } else {
+          print("here2")
+          writexl::write_xlsx(rv$data, file)
+        }
+      }
+    )
+
+    # create template and data tabs
+    output$ui_table <- renderUI({
+      data_tabs <- lapply(upload$data$sheets, function(i) {
+        shiny::tabPanel(
+          title = i,
+          wellPanel(
+            DT::DTOutput(ns(glue::glue("data_table_{i}"))),
+            style = "font-size:80%",
+            class = "wellpanel"
+          )
+        )
+      })
+      data <- do.call(
+        tabBox,
+        c(
+          data_tabs,
+          id = ns("data_tabs"),
+          width = 12,
+          title = "Data"
+        )
+      )
+
+      tagList(data)
+    })
+
+    observe({
+      lapply(names(rv$data), function(x) {
+        output[[glue::glue("upload_table_{x}")]] <- DT::renderDT({
+          data_table(rv$data[[x]])
+        })
+      })
+    })
+
+
+
 
   })
 }
