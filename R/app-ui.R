@@ -77,14 +77,14 @@ app_ui <- function() {
       )
     ),
     freshTheme = fresh::create_theme(
-      fresh::bs4dash_layout(main_bg = "#fff1e6"),
+      fresh::bs4dash_layout(main_bg = "#d1d4d3"),
       fresh::bs4dash_sidebar_light(
-        bg = "#bfa89e",
-        submenu_bg = "#bfa89e"
+        bg = "#d1d4d3",
+        submenu_bg = "#d1d4d3"
       ),
       fresh::bs4dash_status(
-        primary = "#588157",
-        light = "#fff1e6"
+        primary = "#0081ab",
+        light = "#d1d4d3"
       )
     )
   )
