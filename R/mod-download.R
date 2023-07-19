@@ -32,6 +32,7 @@ mod_download_server <- function(id, upload) {
       data = NULL
     )
 
+    ### TODO Put in code to process data
     observe({
       rv$location <- upload$data$Locations
       rv$event <- upload$data$Events
@@ -40,7 +41,6 @@ mod_download_server <- function(id, upload) {
         Events = rv$event,
         Locations = rv$location
       )
-
     })
 
     output$download_template <- downloadHandler(
@@ -54,18 +54,16 @@ mod_download_server <- function(id, upload) {
       content = function(file) {
 
         if (length(rv$data$Events) == 0) {
-          print("here1")
           writexl::write_xlsx(upload$template_dl, file)
         } else {
-          print("here2")
           writexl::write_xlsx(rv$data, file)
         }
       }
     )
 
-    # create template and data tabs
+    # display data
     output$ui_table <- renderUI({
-      data_tabs <- lapply(upload$data$sheets, function(i) {
+      data_tabs <- lapply(names(upload$template_dl), function(i) {
         shiny::tabPanel(
           title = i,
           wellPanel(
@@ -81,7 +79,7 @@ mod_download_server <- function(id, upload) {
           data_tabs,
           id = ns("data_tabs"),
           width = 12,
-          title = "Data"
+          title = "Model Ready Data"
         )
       )
 
@@ -90,14 +88,11 @@ mod_download_server <- function(id, upload) {
 
     observe({
       lapply(names(rv$data), function(x) {
-        output[[glue::glue("upload_table_{x}")]] <- DT::renderDT({
+        output[[glue::glue("data_table_{x}")]] <- DT::renderDT({
           data_table(rv$data[[x]])
         })
       })
     })
-
-
-
 
   })
 }
