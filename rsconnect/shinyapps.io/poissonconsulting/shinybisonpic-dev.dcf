@@ -5,7 +5,7 @@ account: poissonconsulting
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 9453963
-bundleId: 7468162
+bundleId: 7480453
 url: https://poissonconsulting.shinyapps.io/shinybisonpic-dev/
-when: 1689635756.53666
-lastSyncTime: 1689635756.53667
+when: 1689890051.09686
+lastSyncTime: 1689890051.09687
