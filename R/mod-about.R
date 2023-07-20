@@ -3,7 +3,8 @@ mod_about_ui <- function(id, label = "about") {
 
   box(
     width = 12,
-    collapsible = FALSE
+    collapsible = FALSE,
+    includeMarkdown(system.file(package = "shinybisonpic", "helpfiles/about.md"))
   )
 }
 

@@ -3,7 +3,8 @@ mod_help_ui <- function(id, label = "help") {
 
   box(
     width = 12,
-    collapsible = FALSE
+    collapsible = FALSE,
+    includeMarkdown(system.file(package = "shinybisonpic", "helpfiles/help.md"))
   )
 }
 

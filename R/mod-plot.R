@@ -4,6 +4,10 @@ mod_plot_ui <- function(id, label = "plot") {
 
   instructions <- bs4Dash::box(
     width = 12,
+    title = shinyhelper::helper(
+      div(HTML(glue::glue("Plot Data &nbsp &nbsp &nbsp"))),
+      content = "plot"
+    ),
     tags$label("Select Plot"),
     uiOutput(ns("ui_plot_type"))
   )
