@@ -85,8 +85,8 @@ mod_map_server <- function(id, upload) {
           lng =  rv$location$longitude,
           lat = rv$location$latitude,
           label = rv$location$location_id,
-          fillColor = "#FFFFFF",
-          color = "#FFFFFF",
+          fillColor = "#F1F1F1",
+          color = "#F1F1F1",
           popup = leafpop::popupTable(
             as.data.frame(rv$location),
             row.numbers = FALSE
@@ -110,8 +110,8 @@ mod_map_server <- function(id, upload) {
         lng =  site_pick$longitude,
         lat = site_pick$latitude,
         label = site_pick$location_id,
-        fillColor = "#5fceea",
-        color = "#5fceea",
+        fillColor = "#0070C4",
+        color = "#0070C4",
         popup = leafpop::popupTable(
           as.data.frame(site_pick),
           row.numbers = FALSE
