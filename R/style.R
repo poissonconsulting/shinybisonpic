@@ -1,7 +1,7 @@
 css_styling <- function() {
   x <- "
   .navbar-white {
-    background-color: #d1d4d3;
+    background-color: #F1F1F1;
   }
 
   "
