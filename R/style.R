@@ -1,3 +1,6 @@
+# default colour for interactive objects: #0070C4
+# light background colour: #F1F1F1
+
 css_styling <- function() {
   x <- "
   .navbar-white {
@@ -10,6 +13,10 @@ css_styling <- function() {
 
   .checkbox-inline {
 	  margin-left: 20px;
+  }
+
+  table.dataTable tr.selected td, table.dataTable td.selected {
+    box-shadow: inset 0 0 0 9999px #0070C4 !important;
   }
 
   "
