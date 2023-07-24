@@ -9,7 +9,8 @@ mod_plot_ui <- function(id, label = "plot") {
       content = "plot"
     ),
     tags$label("Select Plot"),
-    uiOutput(ns("ui_plot_type"))
+    uiOutput(ns("ui_select_sex")),
+    uiOutput(ns("ui_select_age"))
   )
 
   plot <- bs4Dash::box(
@@ -32,7 +33,8 @@ mod_plot_server <- function(id, upload) {
 
     rv <- reactiveValues(
       location = NULL,
-      event = NULL
+      event = NULL,
+      select = NULL
     )
 
     observe({
@@ -40,19 +42,37 @@ mod_plot_server <- function(id, upload) {
       rv$event <- upload$data$Events
     })
 
-    output$ui_plot_type <- renderUI({
-      selectInput(
-        ns("select"),
-        label = NULL,
-        choices = c("calf cow", "bull cow", "bull calf")
+    output$ui_select_sex <- renderUI({
+      checkboxGroupInput(
+        ns("select_sex"),
+        label = "Sex",
+        choices = c("male", "female", "unknown"),
+        inline = TRUE
       )
+    })
+
+    output$ui_select_age <- renderUI({
+      checkboxGroupInput(
+        ns("select_age"),
+        label = "Age",
+        choices = c(
+          "calf", "yearling",  "adults", "2 yr olds (male only)",
+          "3 yr olds (males only)", "unknown"
+        ),
+        inline = TRUE
+      )
+    })
+
+    observe({
+      rv$select <- c(input$select_age, input$select_sex)
     })
 
     output$plot <- renderPlot({
       req(rv$event)
-      if (input$select == "calf cow") {
+      req(rv$select)
+      if (c("unknown") %in% rv$select) {
         plot(data = rv$event, fa ~ f1)
-      } else if (input$select == "bull cow") {
+      } else if ("yearling" %in% rv$select) {
         plot(data = rv$event, ma ~ f1)
       }
     })

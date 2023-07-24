@@ -8,6 +8,10 @@ css_styling <- function() {
     color: #0070C4
   }
 
+  .checkbox-inline {
+	  margin-left: 20px;
+  }
+
   "
   tags$style(x, type = "text/css")
 }
