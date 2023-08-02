@@ -7,7 +7,7 @@ Authors@R: c(
     person("Alberta Environment and Parks", role = "cph")
     )
 Description: What the package does (one paragraph).
-License: MIT + file LICENSE
+License: Apache License (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
