@@ -23,8 +23,8 @@ mod_plot_ui <- function(id, label = "plot") {
       content = "plot"
     ),
     tags$label("Select Plot"),
-    uiOutput(ns("ui_select_sex")),
-    uiOutput(ns("ui_select_age"))
+    uiOutput(ns("ui_select_numerator")),
+    uiOutput(ns("ui_select_denominator"))
   )
 
   plot <- bs4Dash::box(
@@ -56,39 +56,45 @@ mod_plot_server <- function(id, upload) {
       rv$event <- upload$data$Events
     })
 
-    output$ui_select_sex <- renderUI({
+    output$ui_select_numerator <- renderUI({
       checkboxGroupInput(
-        ns("select_sex"),
-        label = "Sex",
-        choices = c("male", "female", "unknown"),
-        inline = TRUE
-      )
-    })
-
-    output$ui_select_age <- renderUI({
-      checkboxGroupInput(
-        ns("select_age"),
-        label = "Age",
+        ns("select_numerator"),
+        label = "Numerator",
         choices = c(
-          "calf", "yearling",  "adults", "2 yr olds (male only)",
-          "3 yr olds (males only)", "unknown"
+          "male calf", "male yearling", "male adult", "male 2 yr old",
+          "male 3 yr old", "male unknown",
+          "female calf", "female yearling", "female adult", "female unknown",
+          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
         ),
         inline = TRUE
       )
     })
 
-    observe({
-      rv$select <- c(input$select_age, input$select_sex)
+    output$ui_select_denominator <- renderUI({
+      checkboxGroupInput(
+        ns("select_denominator"),
+        label = "Denominator",
+        choices = c(
+          "male calf", "male yearling", "male adult", "male 2 yr old",
+          "male 3 yr old", "male unknown",
+          "female calf", "female yearling", "female adult", "female unknown",
+          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
+        ),
+        inline = TRUE
+      )
     })
 
     output$plot <- renderPlot({
       req(rv$event)
       req(rv$select)
-      if (c("unknown") %in% rv$select) {
-        plot(data = rv$event, fa ~ f1)
-      } else if ("yearling" %in% rv$select) {
-        plot(data = rv$event, ma ~ f1)
-      }
+      req(input$select_denominator)
+      req(input$select_numerator)
+      bisonpictools::plot_ratios(
+        rv$event,
+        rv$location,
+        input$select_denominator,
+        input$select_numerator
+      )
     })
 
     output$ui_plot <- renderUI({
