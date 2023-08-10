@@ -23,8 +23,21 @@ mod_plot_ui <- function(id, label = "plot") {
       content = "plot"
     ),
     tags$label("Select Plot"),
-    uiOutput(ns("ui_select_numerator")),
-    uiOutput(ns("ui_select_denominator"))
+    br(),
+    tags$label("Numerator"),
+    div(
+      style = "display:flex",
+      uiOutput(ns("ui_select_numerator_m")),
+      uiOutput(ns("ui_select_numerator_f")),
+      uiOutput(ns("ui_select_numerator_u"))
+    ),
+    tags$label("Denominator"),
+    div(
+      style = "display:flex",
+      uiOutput(ns("ui_select_denominator_m")),
+      uiOutput(ns("ui_select_denominator_f")),
+      uiOutput(ns("ui_select_denominator_u"))
+    )
   )
 
   plot <- bs4Dash::box(
@@ -34,8 +47,8 @@ mod_plot_ui <- function(id, label = "plot") {
   )
 
   fluidRow(
-    column(width = 4, instructions),
-    column(width = 8, plot)
+    column(width = 4.5, instructions),
+    column(width = 7.5, plot)
   )
 
 }
@@ -56,39 +69,81 @@ mod_plot_server <- function(id, upload) {
       rv$event <- upload$data$Events
     })
 
-    output$ui_select_numerator <- renderUI({
+    output$ui_select_numerator_m <- renderUI({
       checkboxGroupInput(
-        ns("select_numerator"),
-        label = "Numerator",
+        ns("select_numerator_m"),
+        label = NULL,
         choices = c(
           "male calf", "male yearling", "male adult", "male 2 yr old",
-          "male 3 yr old", "male unknown",
-          "female calf", "female yearling", "female adult", "female unknown",
-          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
-        ),
-        inline = TRUE
+          "male 3 yr old", "male unknown"
+        )
       )
     })
 
-    output$ui_select_denominator <- renderUI({
+    output$ui_select_numerator_f <- renderUI({
       checkboxGroupInput(
-        ns("select_denominator"),
-        label = "Denominator",
+        ns("select_numerator_f"),
+        label = NULL,
+        choices = c(
+          "female calf", "female yearling", "female adult", "female unknown"
+        )
+      )
+    })
+
+    output$ui_select_numerator_u <- renderUI({
+      checkboxGroupInput(
+        ns("select_numerator_u"),
+        label = NULL,
+        choices = c(
+          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
+        )
+      )
+    })
+
+    output$ui_select_denominator_m <- renderUI({
+      checkboxGroupInput(
+        ns("select_denominator_m"),
+        label = NULL,
         choices = c(
           "male calf", "male yearling", "male adult", "male 2 yr old",
-          "male 3 yr old", "male unknown",
-          "female calf", "female yearling", "female adult", "female unknown",
-          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
-        ),
-        inline = TRUE
+          "male 3 yr old", "male unknown"
+        )
       )
+    })
+
+    output$ui_select_denominator_f <- renderUI({
+      checkboxGroupInput(
+        ns("select_denominator_f"),
+        label = NULL,
+        choices = c(
+          "female calf", "female yearling", "female adult", "female unknown"
+        )
+      )
+    })
+
+    output$ui_select_denominator_u <- renderUI({
+      checkboxGroupInput(
+        ns("select_denominator_u"),
+        label = NULL,
+        choices = c(
+          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
+        )
+      )
+    })
+
+    observe({
+      print(input$select_denominator)
+      print(input$select_numerator)
+      print(rv$event)
+      print(rv$location)
     })
 
     output$plot <- renderPlot({
       req(rv$event)
-      req(rv$select)
+      req(rv$location)
       req(input$select_denominator)
       req(input$select_numerator)
+
       bisonpictools::plot_ratios(
         rv$event,
         rv$location,

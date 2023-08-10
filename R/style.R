@@ -25,8 +25,8 @@ css_styling <- function() {
     color: #0070C4
   }
 
-  .checkbox-inline {
-	  margin-left: 20px;
+  .shiny-options-group {
+    padding-right: 30px
   }
 
   table.dataTable tr.selected td, table.dataTable td.selected {
