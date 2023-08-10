@@ -174,3 +174,27 @@ data_table <- function(data) {
     )
   )
 }
+
+# Helper Functions ----
+code_sex_age <- function(x) {
+  lookup <- c(
+    m0 = "male calf",
+    m1 = "male yearling",
+    ma = "male adult",
+    mu = "male unknown",
+    m2 = "male 2 yr old",
+    m3 = "male 3 yr old",
+    f0 = "female calf",
+    f1 = "female yearling",
+    fa = "female adult",
+    fu = "female unknown",
+    u0 = "unknown calf",
+    u1 = "unknown yearling",
+    ua = "unknown adult",
+    uu = "unknown unknown"
+  )
+
+  id <- match(x, lookup)
+  codes <- names(lookup[id])
+  codes
+}

@@ -47,8 +47,8 @@ mod_plot_ui <- function(id, label = "plot") {
   )
 
   fluidRow(
-    column(width = 4.5, instructions),
-    column(width = 7.5, plot)
+    column(width = 4, instructions),
+    column(width = 8, plot)
   )
 
 }
@@ -61,7 +61,8 @@ mod_plot_server <- function(id, upload) {
     rv <- reactiveValues(
       location = NULL,
       event = NULL,
-      select = NULL
+      numerator = NULL,
+      denominator = NULL
     )
 
     observe({
@@ -74,8 +75,8 @@ mod_plot_server <- function(id, upload) {
         ns("select_numerator_m"),
         label = NULL,
         choices = c(
-          "male calf", "male yearling", "male adult", "male 2 yr old",
-          "male 3 yr old", "male unknown"
+          "male calf", "male yearling", "male adult",  "male unknown",
+          "male 2 yr old", "male 3 yr old"
         )
       )
     })
@@ -100,13 +101,22 @@ mod_plot_server <- function(id, upload) {
       )
     })
 
+    observe({
+      numerator <- c(
+        input$select_numerator_m,
+        input$select_numerator_f,
+        input$select_numerator_u
+      )
+      rv$numerator <- code_sex_age(numerator)
+    })
+
     output$ui_select_denominator_m <- renderUI({
       checkboxGroupInput(
         ns("select_denominator_m"),
         label = NULL,
         choices = c(
-          "male calf", "male yearling", "male adult", "male 2 yr old",
-          "male 3 yr old", "male unknown"
+          "male calf", "male yearling", "male adult", "male unknown",
+          "male 2 yr old", "male 3 yr old"
         )
       )
     })
@@ -132,23 +142,25 @@ mod_plot_server <- function(id, upload) {
     })
 
     observe({
-      print(input$select_denominator)
-      print(input$select_numerator)
-      print(rv$event)
-      print(rv$location)
+      denominator <- c(
+        input$select_denominator_m,
+        input$select_denominator_f,
+        input$select_denominator_u
+      )
+      rv$denominator <- code_sex_age(denominator)
     })
 
     output$plot <- renderPlot({
       req(rv$event)
       req(rv$location)
-      req(input$select_denominator)
-      req(input$select_numerator)
+      req(rv$denominator)
+      req(rv$numerator)
 
       bisonpictools::plot_ratios(
         rv$event,
         rv$location,
-        input$select_denominator,
-        input$select_numerator
+        rv$denominator,
+        rv$numerator
       )
     })
 
