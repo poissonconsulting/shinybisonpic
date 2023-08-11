@@ -6,7 +6,8 @@
 [![deploy-app](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/deploy-app.yaml/badge.svg)](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/deploy-app.yaml)
 <!-- badges: end -->
 
-The goal of shinybisonpic is to …
+`shinybisonpic` is a Shiny app for visualizing wood bison camera trap
+data and preparing the raw data for modeling.
 
 ## Usage
 
@@ -36,11 +37,11 @@ run_bisonpic_app()
 ### Overview of How to Use the App
 
 - Download the template for the tab
-- Fill in the template with data
-- Upload your data
-- View the locations plotted on a map
-- View the data through various plots
-- Download the data for use in the model
+- Fill in the template with your data
+- Upload your raw data
+- View the locations spatially
+- Explore ratios of sex-age classes
+- Download cleaned and processed data ready for demographic modelling
 
 ## Contribution
 
