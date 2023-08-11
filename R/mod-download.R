@@ -24,7 +24,7 @@ mod_download_ui <- function(id, label = "download") {
     ),
     br(),
     tags$label("1. Download Data"), br(),
-    downloadButton(ns("download_template"), "XLSX")
+    downloadButton(ns("download_data"), "XLSX")
   )
 
   fluidRow(
@@ -62,7 +62,7 @@ mod_download_server <- function(id, upload) {
       )
     })
 
-    output$download_template <- downloadHandler(
+    output$download_data <- downloadHandler(
       filename = function() {
         time_stamp <- format(Sys.time(), format = "%F %T", tz = "PST8PDT")
         time_stamp <- gsub(" ", "_", time_stamp)
