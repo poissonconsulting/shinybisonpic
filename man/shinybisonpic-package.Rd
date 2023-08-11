@@ -6,7 +6,7 @@
 \alias{shinybisonpic-package}
 \title{shinybisonpic: Shiny App for Visualizing and Cleaning Wood Bison Camera Trap Data}
 \description{
-This app is a wrapper on the `bisonpictools` R package which provides non R user's a way to visualize and clean Wood Bison camera trap data. Camera trap data is uploaded and then visualized spatially by viewing the locations on a map and being able to explore the ratios between different life stages. A cleaned and processed data set that is ready for modeling can be downloaded from the app.
+This app is a wrapper on the `bisonpictools` R package which provides non R user's a way to visualize and clean wood bison camera trap data. Camera trap data is uploaded and then visualized spatially by viewing the locations on a map and being able to explore the ratios between different combinations of sex and life stages. A cleaned and processed data set that is ready for modeling can be downloaded from the app.
 }
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
@@ -16,7 +16,7 @@ Other contributors:
   \item Andrea Kortello \email{andrea@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-8047-3331}{ORCID}) [contributor]
   \item Nicole Hill \email{nicole@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7623-2153}{ORCID}) [contributor]
   \item Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID}) [contributor]
-  \item Troy Troy.Hegel@gov.ab.ca Hegel [contributor]
+  \item Troy Hegel \email{Troy.Hegel@gov.ab.ca} [contributor]
   \item Province of Alberta [copyright holder]
 }
 

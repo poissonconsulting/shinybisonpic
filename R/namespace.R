@@ -13,5 +13,6 @@
 #limitations under the License.
 
 #' @import bs4Dash
+#' @importFrom pkgload load_all
 #' @rawNamespace import(shiny, except = c(p,tabsetPanel,column, updateTabsetPanel, insertTab, actionButton, navbarMenu))
 NULL
