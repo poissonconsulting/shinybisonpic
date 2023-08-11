@@ -65,8 +65,8 @@ mod_download_server <- function(id, upload) {
     output$download_template <- downloadHandler(
       filename = function() {
         time_stamp <- format(Sys.time(), format = "%F %T", tz = "PST8PDT")
-        time_stamp <- stringr::str_replace(time_stamp, " ", "_")
-        time_stamp <- stringr::str_replace_all(time_stamp, ":", "-")
+        time_stamp <- gsub(" ", "_", time_stamp)
+        time_stamp <- gsub(":", "-", time_stamp)
         paste0(time_stamp, "_bison-data", ".xlsx")
       },
 
