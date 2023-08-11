@@ -21,6 +21,7 @@ Description: This app is a wrapper on the `bisonpictools` R package which
     set that is ready for modeling can be downloaded from the app. 
 License: Apache License (>= 2)
 Imports: 
+    bisonpictools,
     bs4Dash,
     chk,
     DT,
