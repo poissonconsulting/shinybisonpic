@@ -142,13 +142,28 @@ mod_upload_server <- function(id) {
     # create and display uploaded data
     observeEvent(input$upload, {
       ### TODO checks
-      sheets <- readxl::excel_sheets(input$upload$datapath)
-      data <- lapply(sheets, function(x) {
+      sheets_data <- readxl::excel_sheets(input$upload$datapath)
+
+
+      chk_flag <- try(check_sheet_names(sheets_data, sheets), silent = TRUE)
+      if (is_try_error(chk_flag)) {
+        return(showModal(check_modal(chk_flag)))
+      }
+
+      data <- lapply(sheets_data, function(x) {
         readxl::read_excel(input$upload$datapath, sheet = x, na = c("", "NA"))
       })
-      names(data) <- sheets
-      rv$data <- data
+      names(data) <- sheets_data
+
       ### TODO checks
+      # check that all events match a location
+
+
+
+      # check types match
+      print(data)
+
+
       rv$data <- data
     }, label = "generating data")
 

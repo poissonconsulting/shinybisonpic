@@ -198,3 +198,47 @@ code_sex_age <- function(x) {
   codes <- names(lookup[id])
   codes
 }
+
+is_try_error <- function(x){
+  inherits(x, "try-error")
+}
+
+# Check Functions ----
+
+check_modal <- function(check, title = "Please fix the following issue ...") {
+  msg <- stringr::str_replace(check[1], "^Error\\s*.*[:]", "")
+  msg <- gsub("Error : ", "", msg)
+  modalDialog(paste(msg),
+              title = title, footer = modalButton("Got it")
+  )
+}
+
+## app only check ----
+check_sheet_names <- function(sheets, template_sheets) {
+  if (any(!(sheets %in% template_sheets))) {
+    chk::abort_chk(
+      "The sheet names of the uploaded file do not match the sheet names of the
+      template. You need to correct the sheet names before the file will be
+      uploaded to the app."
+    )
+  }
+}
+
+
+## checks to add to tools pkg ----
+
+check_between_tables <- function(data){
+
+  location <- data[["Location"]]
+  event <- data[["Events"]]
+
+  if (!chk::vld_join(event, location, by = c("location_id"))) {
+    chk::abort_chk(
+      "Not all `location_id` values in the event table are in the locations
+      table. Ensure all `location_id` are in the Locations table."
+    )
+  }
+
+  data
+}
+
