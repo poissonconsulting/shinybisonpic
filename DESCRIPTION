@@ -40,5 +40,5 @@ Imports:
     shinyhelper,
     tibble,
     writexl
-remotes:
+Remotes:
     poissonconsutling/bisonpictools
