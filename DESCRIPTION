@@ -20,12 +20,6 @@ Description: This app is a wrapper on the `bisonpictools` R package which
     different combinations of sex and life stages. A cleaned and processed data 
     set that is ready for modeling can be downloaded from the app. 
 License: Apache License (>= 2)
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
 Imports: 
     bisonpictools,
     bs4Dash,
@@ -41,5 +35,11 @@ Imports:
     shinyhelper,
     tibble,
     writexl
+Suggests: 
+    testthat (>= 3.0.0)
 Remotes:
     poissonconsutling/bisonpictools
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Config/testthat/edition: 3
