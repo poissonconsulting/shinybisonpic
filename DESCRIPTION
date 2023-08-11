@@ -21,7 +21,6 @@ Description: This app is a wrapper on the `bisonpictools` R package which
     set that is ready for modeling can be downloaded from the app. 
 License: Apache License (>= 2)
 Imports: 
-    bisonpictools,
     bs4Dash,
     chk,
     DT,
@@ -37,8 +36,6 @@ Imports:
     writexl
 Suggests: 
     testthat (>= 3.0.0)
-Remotes:
-    poissonconsutling/bisonpictools
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
