@@ -141,15 +141,14 @@ mod_upload_server <- function(id) {
 
     # create and display uploaded data
     observeEvent(input$upload, {
-      ### TODO checks
       sheets_data <- readxl::excel_sheets(input$upload$datapath)
-
-
-      chk_flag <- try(check_sheet_names(sheets_data, sheets), silent = TRUE)
-      if (is_try_error(chk_flag)) {
-        return(showModal(check_modal(chk_flag)))
+      try_sheet_names <- try(
+        check_sheet_names(sheets_data, sheets),
+        silent = TRUE
+      )
+      if (is_try_error(try_sheet_names)) {
+        return(showModal(check_modal(try_sheet_names)))
       }
-
       data <- lapply(sheets_data, function(x) {
         readxl::read_excel(input$upload$datapath, sheet = x, na = c("", "NA"))
       })
@@ -158,9 +157,19 @@ mod_upload_server <- function(id) {
       ### TODO checks
       # check that all events match a location
 
-
-
       # check types match
+      data <- try(
+        bisonpictools:::bpt_check_data(
+          data,
+          template_bison
+        ),
+        silent = TRUE
+      )
+      if (is_try_error(data)) {
+        return(showModal(check_modal(data)))
+      }
+
+
       print(data)
 
 

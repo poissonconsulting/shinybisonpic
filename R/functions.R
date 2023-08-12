@@ -206,7 +206,7 @@ is_try_error <- function(x){
 # Check Functions ----
 
 check_modal <- function(check, title = "Please fix the following issue ...") {
-  msg <- gsub("^Error [^:]*\\) : \n  ", "", check[1])
+  msg <- gsub("^Error (.*?)( : )", "", check[1])
   msg <- gsub("Error : ", "", msg)
   modalDialog(paste(msg),
               title = title, footer = modalButton("Got it")
@@ -223,22 +223,3 @@ check_sheet_names <- function(sheets, template_sheets) {
     )
   }
 }
-
-
-## checks to add to tools pkg ----
-
-check_between_tables <- function(data){
-
-  location <- data[["Location"]]
-  event <- data[["Events"]]
-
-  if (!chk::vld_join(event, location, by = c("location_id"))) {
-    chk::abort_chk(
-      "Not all `location_id` values in the event table are in the locations
-      table. Ensure all `location_id` are in the Locations table."
-    )
-  }
-
-  data
-}
-
