@@ -50,8 +50,8 @@ mod_upload_server <- function(id) {
 
     # read in template
     path <- system.file(
-      package = "shinybisonpic",
-      "app/www/template-bison.xlsx"
+      package = "bisonpictools",
+      "template/template-bison.xlsx"
     )
     sheets <- readxl::excel_sheets(path)
     template_bison <- lapply(sheets, function(x) readxl::read_excel(path, x))
@@ -154,9 +154,6 @@ mod_upload_server <- function(id) {
       })
       names(data) <- sheets_data
 
-      ### TODO checks
-      # check that all events match a location
-
       # check types match
       data <- try(
         bisonpictools:::bpt_check_data(
@@ -168,6 +165,7 @@ mod_upload_server <- function(id) {
       if (is_try_error(data)) {
         return(showModal(check_modal(data)))
       }
+
 
 
       print(data)
