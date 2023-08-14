@@ -165,7 +165,7 @@ mod_plot_server <- function(id, upload) {
     })
 
     output$ui_plot <- renderUI({
-      req(rv$event)
+
       plotOutput(ns("plot"))
     })
 
