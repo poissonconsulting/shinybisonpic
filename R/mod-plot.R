@@ -66,8 +66,8 @@ mod_plot_server <- function(id, upload) {
     )
 
     observe({
-      rv$location <- upload$data$Locations
-      rv$event <- upload$data$Events
+      rv$location <- upload$data$location
+      rv$event <- upload$data$event
     })
 
     output$ui_select_numerator_m <- renderUI({
