@@ -44,12 +44,12 @@ mod_map_server <- function(id, upload) {
     )
 
     observe({
-      rv$location <- upload$data$Locations
+      rv$location <- upload$data$location
     })
 
     observe({
       req(rv$location)
-      rv$sites <- sort(unique(upload$data$Locations$location_id))
+      rv$sites <- sort(unique(upload$data$location$location_id))
     })
 
 
