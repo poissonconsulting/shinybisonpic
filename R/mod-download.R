@@ -48,11 +48,11 @@ mod_download_server <- function(id, upload) {
 
     ### TODO Put in code to process data
     observe({
-      rv$location <- bisonpictools::manipulate_data_analysis_location(
+      rv$location <- bisonpictools::bpt_manipulate_data_analysis_location(
         upload$data$Locations
       )
 
-      rv$event <- bisonpictools::manipulate_data_analysis_event(
+      rv$event <- bisonpictools::bpt_manipulate_data_analysis_event(
         upload$data$Events
       )
 

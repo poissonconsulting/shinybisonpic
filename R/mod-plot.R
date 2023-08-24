@@ -156,7 +156,7 @@ mod_plot_server <- function(id, upload) {
       req(rv$denominator)
       req(rv$numerator)
 
-      bisonpictools::plot_ratios(
+      bisonpictools::bpt_plot_ratios(
         rv$event,
         rv$location,
         rv$denominator,
