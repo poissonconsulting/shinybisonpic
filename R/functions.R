@@ -203,6 +203,28 @@ is_try_error <- function(x){
   inherits(x, "try-error")
 }
 
+add_title_newlines <- function(x, max_nchars = 92) {
+  nc <- nchar(x)
+  n <- ceiling(nc/max_nchars)
+
+  up <- 0
+  start <- 1
+  end <- max_nchars
+  vec <- c()
+
+  for (i in 1:n) {
+    start <- start + up
+    end <- end + up
+    up <- max_nchars
+
+    line <- stringr::str_sub(x, start = start, end = end)
+    vec <- c(vec, line)
+  }
+
+  x <- paste(vec, collapse = "\n")
+  x
+}
+
 # Check Functions ----
 
 check_modal <- function(check, title = "Please fix the following issue ...") {

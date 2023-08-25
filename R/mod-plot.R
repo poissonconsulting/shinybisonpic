@@ -105,12 +105,12 @@ mod_plot_server <- function(id, upload) {
     })
 
     observe({
-      numerator <- c(
+      rv$numerator_human <- c(
         input$select_numerator_m,
         input$select_numerator_f,
         input$select_numerator_u
       )
-      rv$numerator <- code_sex_age(numerator)
+      rv$numerator <- code_sex_age(rv$numerator_human)
     })
 
     output$ui_select_denominator_m <- renderUI({
@@ -145,25 +145,25 @@ mod_plot_server <- function(id, upload) {
     })
 
     observe({
-      denominator <- c(
+      rv$denominator_human <- c(
         input$select_denominator_m,
         input$select_denominator_f,
         input$select_denominator_u
       )
-      rv$denominator <- code_sex_age(denominator)
+      rv$denominator <- code_sex_age(rv$denominator_human)
     })
 
     output$plot <- renderPlot({
       req(rv$event)
       req(rv$location)
-      req(rv$denominator)
       req(rv$numerator)
+      req(rv$denominator)
 
       rv$plot <- bisonpictools::bpt_plot_ratios(
         rv$event,
         rv$location,
-        rv$denominator,
-        rv$numerator
+        numerator = rv$numerator,
+        denominator = rv$denominator
       )
       rv$plot
     })
@@ -180,10 +180,27 @@ mod_plot_server <- function(id, upload) {
     output$download_plot <- downloadHandler(
       filename = "shinybisonpic_ratio_plot.png",
       content = function(file) {
+        title <- add_title_newlines(
+          gsub(
+            "'",
+            "",
+            paste(
+              "Ratio of",
+              chk::cc(rv$numerator_human,  conj = " and ", ellipsis = 20L),
+              "per",
+              chk::cc(rv$denominator_human, conj = " and ", ellipsis = 20L)
+            )
+          )
+        )
+
+        plot <- rv$plot +
+          ggplot2::ggtitle(title)
+
         ggplot2::ggsave(
           file,
-          rv$plot,
-          device = "png"
+          plot,
+          device = "png",
+          width = 9
         )
       }
     )

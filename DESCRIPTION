@@ -33,6 +33,7 @@ Imports:
     readxl,
     shiny,
     shinyhelper,
+    stringr,
     tibble,
     writexl
 Suggests: 
