@@ -19,19 +19,19 @@ mod_plot_ui <- function(id, label = "plot") {
   instructions <- bs4Dash::box(
     width = 12,
     title = shinyhelper::helper(
-      div(HTML(glue::glue("Plot Ratios &nbsp &nbsp &nbsp"))),
+      div(HTML(glue::glue("Select Ratios &nbsp &nbsp &nbsp"))),
       content = "plot"
     ),
-    tags$label("Select sex-age groups to generate a ratio:"),
+    tags$h5("Numerator"),
     br(),
-    tags$label("Numerator"),
     div(
       style = "display:flex",
       uiOutput(ns("ui_select_numerator_m")),
       uiOutput(ns("ui_select_numerator_f")),
       uiOutput(ns("ui_select_numerator_u"))
     ),
-    tags$label("Denominator"),
+    tags$h5("Denominator"),
+    br(),
     div(
       style = "display:flex",
       uiOutput(ns("ui_select_denominator_m")),
