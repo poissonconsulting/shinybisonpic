@@ -43,6 +43,8 @@ mod_plot_ui <- function(id, label = "plot") {
   plot <- bs4Dash::box(
     width = 12,
     title = "Plots",
+    uiOutput(ns("download_button")),
+    br(), br(),
     uiOutput(ns("ui_plot"))
   )
 
@@ -62,7 +64,8 @@ mod_plot_server <- function(id, upload) {
       location = NULL,
       event = NULL,
       numerator = NULL,
-      denominator = NULL
+      denominator = NULL,
+      plot = NULL
     )
 
     observe({
@@ -156,18 +159,34 @@ mod_plot_server <- function(id, upload) {
       req(rv$denominator)
       req(rv$numerator)
 
-      bisonpictools::bpt_plot_ratios(
+      rv$plot <- bisonpictools::bpt_plot_ratios(
         rv$event,
         rv$location,
         rv$denominator,
         rv$numerator
       )
+      rv$plot
     })
 
     output$ui_plot <- renderUI({
-
       plotOutput(ns("plot"))
     })
+
+    output$download_button <- renderUI({
+      req(rv$plot)
+      downloadButton(ns("download_plot"), "Download Plot", class = "btn-plot")
+    })
+
+    output$download_plot <- downloadHandler(
+      filename = "shinybisonpic_ratio_plot.png",
+      content = function(file) {
+        ggplot2::ggsave(
+          file,
+          rv$plot,
+          device = "png"
+        )
+      }
+    )
 
   })
 }
