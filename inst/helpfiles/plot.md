@@ -1,4 +1,4 @@
-#### Plot 
+#### Plot Data Help
 
 Explore the ratios of various sex-age groups by selecting any combinations of values.   
 
@@ -7,7 +7,7 @@ For the plot to appear, you must:
 - select at least one value for the **Numerator** 
 - select at least one value for the **Denominator**
 
-The plot can be downloaded by pressing the **Download Plot** button on the top right of the Plots box.  
+The plot can be downloaded as a .png file by pressing the **Download Plot** button on the top right of the Plots box.  
 
 ##### Example 
 
