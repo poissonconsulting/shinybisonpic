@@ -20,7 +20,8 @@ mod_plot_ui <- function(id, label = "plot") {
     width = 12,
     title = shinyhelper::helper(
       div(HTML(glue::glue("Select Ratios &nbsp &nbsp &nbsp"))),
-      content = "plot"
+      content = "plot",
+      size = "l"
     ),
     tags$h5("Numerator"),
     br(),
