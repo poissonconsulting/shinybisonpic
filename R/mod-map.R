@@ -19,10 +19,10 @@ mod_map_ui <- function(id, label = "map") {
   instructions <- bs4Dash::box(
     width = 12,
     title = shinyhelper::helper(
-      div(HTML(glue::glue("Map Locations &nbsp &nbsp &nbsp"))),
-      content = "map"
+      div(HTML(glue::glue("Highlight Points &nbsp &nbsp &nbsp"))),
+      content = "map",
+      size = "l"
     ),
-    tags$label("Highlight Location"),
     uiOutput(ns("ui_select_site"))
   )
 
