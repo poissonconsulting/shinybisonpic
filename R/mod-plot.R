@@ -110,6 +110,11 @@ mod_plot_server <- function(id, upload) {
         input$select_numerator_f,
         input$select_numerator_u
       )
+
+      if (is.null(rv$numerator_human)) {
+        rv$plot <- NULL
+      }
+
       rv$numerator <- code_sex_age(rv$numerator_human)
     })
 
@@ -150,6 +155,11 @@ mod_plot_server <- function(id, upload) {
         input$select_denominator_f,
         input$select_denominator_u
       )
+
+      if (is.null(rv$denominator_human)) {
+        rv$plot <- NULL
+      }
+
       rv$denominator <- code_sex_age(rv$denominator_human)
     })
 
