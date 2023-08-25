@@ -1,16 +1,16 @@
-#Copyright 2023 Province of Alberta
+# Copyright 2023 Province of Alberta
 
-#Licensed under the Apache License, Version 2.0 (the "License");
-#you may not use this file except in compliance with the License.
-#You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 
-#http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 
-#Unless required by applicable law or agreed to in writing, software
-#distributed under the License is distributed on an "AS IS" BASIS,
-#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#See the License for the specific language governing permissions and
-#limitations under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 mod_download_ui <- function(id, label = "download") {
 
@@ -49,16 +49,16 @@ mod_download_server <- function(id, upload) {
     ### TODO Put in code to process data
     observe({
       rv$location <- bisonpictools::bpt_manipulate_data_analysis_location(
-        upload$data$Locations
+        upload$data$location
       )
 
       rv$event <- bisonpictools::bpt_manipulate_data_analysis_event(
-        upload$data$Events
+        upload$data$event
       )
 
       rv$data <- list(
-        Events = rv$event,
-        Locations = rv$location
+        event = rv$event,
+        location = rv$location
       )
     })
 
