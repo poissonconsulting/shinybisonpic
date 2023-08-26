@@ -47,7 +47,8 @@ mod_upload_server <- function(id) {
     rv <- reactiveValues(
       data = NULL,
       template_dl = NULL,
-      reset = 1
+      reset = 1,
+      state = "empty"
     )
 
     # read in template
@@ -178,6 +179,7 @@ mod_upload_server <- function(id) {
       }
 
       rv$data <- data
+      rv$state <- "upload"
     }, label = "generating data")
 
     observe({
@@ -191,6 +193,7 @@ mod_upload_server <- function(id) {
     observeEvent(input$dismiss_modal,{
       rv$reset <- rv$reset + 1
       rv$data <- NULL
+      rv$state <- "empty"
       removeModal()
     })
 

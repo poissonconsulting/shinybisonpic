@@ -52,7 +52,6 @@ mod_map_server <- function(id, upload) {
       rv$sites <- sort(unique(upload$data$location$location_id))
     })
 
-
     output$ui_select_site <- renderUI({
       selectInput(
         ns("select"),
@@ -60,8 +59,6 @@ mod_map_server <- function(id, upload) {
         choices = rv$sites
       )
     })
-
-
 
     # display map
     output$leaflet <- leaflet::renderLeaflet({
@@ -131,6 +128,20 @@ mod_map_server <- function(id, upload) {
           row.numbers = FALSE
         )
       )
+    })
+
+    observe({
+      if (upload$state == "empty") {
+        rv$sites <- ""
+      }
+    })
+
+    observe({
+      if (upload$state == "empty") {
+        proxy <- leaflet::leafletProxy(ns("leaflet"))
+        proxy <- proxy |>
+          leaflet::clearMarkers()
+      }
     })
 
   })
