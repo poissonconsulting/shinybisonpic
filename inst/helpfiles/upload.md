@@ -1,6 +1,6 @@
 #### Upload Data Help
 
-Get data into the app by filling out the template and uploading the file. The uploaded data will be run through a series of checks before it will be accepted by the app.
+Get raw data into the app by filling out the template and uploading the file. The uploaded data will be run through a series of checks before it will be accepted by the app.
 
 ##### Process
 

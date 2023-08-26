@@ -1,17 +1,15 @@
-### Instructions for Using the App
+### shinybisonpic Help
 
 **Overall workflow**
 
-1. Download template
-2. Fill in data
-3. Upload data
-4. View locations and confirm all locations are correct 
-5. Review data through the viewing the data plots
-6. Download processed data 
+1. Download template, fill in data and upload 
+2. View locations and verify all locations are correct 
+3. Explore sex-age ratios
+4. Download cleaned data 
 
 **Where is help located**
 
-Each tab has its own help information which can be accessed by clicking on the question mark circle next to the name of the tab in the action box.
+Each tab has its own help information which can be accessed by clicking on the question mark circle at the top of the instruction box of the tab. 
 
 **Please fix the following issue..**
 
