@@ -20,13 +20,14 @@ mod_upload_ui <- function(id, label = "upload") {
     width = 12,
     title = shinyhelper::helper(
       div(HTML(glue::glue("Upload data &nbsp &nbsp &nbsp"))),
-      content = "upload"
+      content = "upload",
+      size = "l"
     ),
     br(),
-    tags$label("1. Download template"), br(),
-    downloadButton(ns("download_template"), "XLSX"),
+    tags$label("1. Download and fill in template"), br(),
+    downloadButton(ns("download_template"), "Template"),
     br(), br(),
-    tags$label("2. Upload data as XLSX file"),
+    tags$label("2. Upload data"),
     uiOutput(ns("upload_bison"))
   )
 
@@ -45,7 +46,8 @@ mod_upload_server <- function(id) {
 
     rv <- reactiveValues(
       data = NULL,
-      template_dl = NULL
+      template_dl = NULL,
+      reset = 1
     )
 
     # read in template
@@ -78,6 +80,7 @@ mod_upload_server <- function(id) {
 
     # upload data widget
     output$upload_bison <- renderUI({
+      rv$reset
       fileInput(
         ns("upload"),
         label = NULL,
@@ -147,7 +150,7 @@ mod_upload_server <- function(id) {
         silent = TRUE
       )
       if (is_try_error(try_sheet_names)) {
-        return(showModal(check_modal(try_sheet_names)))
+        return(showModal(check_modal(try_sheet_names, ns)))
       }
       data <- lapply(sheets_data, function(x) {
         readxl::read_excel(input$upload$datapath, sheet = x, na = c("", "NA"))
@@ -155,21 +158,24 @@ mod_upload_server <- function(id) {
       names(data) <- sheets_data
 
       # check types match
+      # TO DO Turn on when ready in bisonpictools
       data <- try(
-        bisonpictools:::bpt_check_data(
-          data,
-          template_bison
+        # bisonpictools:::bpt_check_data(
+        #   location = data$location,
+        #   event = data$event,
+        #   template_bison
+        # )
+        chktemplate::check_data_format(
+          location = data$location,
+          event = data$event,
+          template = bisonpictools::template,
+          complete = TRUE
         ),
         silent = TRUE
       )
       if (is_try_error(data)) {
-        return(showModal(check_modal(data)))
+        return(showModal(check_modal(data, ns)))
       }
-
-
-
-      print(data)
-
 
       rv$data <- data
     }, label = "generating data")
@@ -180,6 +186,12 @@ mod_upload_server <- function(id) {
           data_table(rv$data[[x]])
         })
       })
+    })
+
+    observeEvent(input$dismiss_modal,{
+      rv$reset <- rv$reset + 1
+      rv$data <- NULL
+      removeModal()
     })
 
     return(rv)

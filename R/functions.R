@@ -227,11 +227,13 @@ add_title_newlines <- function(x, max_nchars = 92) {
 
 # Check Functions ----
 
-check_modal <- function(check, title = "Please fix the following issue ...") {
+check_modal <- function(check, ns, title = "Please fix the following issue ...") {
   msg <- gsub("^Error (.*?)( : )", "", check[1])
   msg <- gsub("Error : ", "", msg)
-  modalDialog(paste(msg),
-              title = title, footer = modalButton("Got it")
+  modalDialog(
+    paste(msg),
+    title = title,
+    footer = actionButton(ns("dismiss_modal"), label = "Got it")
   )
 }
 
