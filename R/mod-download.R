@@ -20,11 +20,12 @@ mod_download_ui <- function(id, label = "download") {
     width = 12,
     title = shinyhelper::helper(
       div(HTML(glue::glue("Download data &nbsp &nbsp &nbsp"))),
-      content = "download"
+      content = "download",
+      size = "l"
     ),
     br(),
-    tags$label("1. Download Data"), br(),
-    downloadButton(ns("download_data"), "XLSX")
+    #tags$label("Download Data"), br(),
+    downloadButton(ns("download_data"), "Clean Data")
   )
 
   fluidRow(
@@ -98,7 +99,7 @@ mod_download_server <- function(id, upload) {
           data_tabs,
           id = ns("data_tabs"),
           width = 12,
-          title = "Model Ready Data"
+          title = "Model ready data"
         )
       )
 
