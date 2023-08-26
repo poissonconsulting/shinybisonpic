@@ -48,7 +48,7 @@ mod_upload_server <- function(id) {
       data = NULL,
       template_dl = NULL,
       reset = 1,
-      state = "empty"
+      state = NULL
     )
 
     # read in template
@@ -193,7 +193,7 @@ mod_upload_server <- function(id) {
     observeEvent(input$dismiss_modal,{
       rv$reset <- rv$reset + 1
       rv$data <- NULL
-      rv$state <- "empty"
+      rv$state <- NULL
       removeModal()
     })
 

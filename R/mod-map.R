@@ -131,13 +131,13 @@ mod_map_server <- function(id, upload) {
     })
 
     observe({
-      if (upload$state == "empty") {
+      if (is.null(upload$state)) {
         rv$sites <- ""
       }
     })
 
     observe({
-      if (upload$state == "empty") {
+      if (is.null(upload$state)) {
         proxy <- leaflet::leafletProxy(ns("leaflet"))
         proxy <- proxy |>
           leaflet::clearMarkers()
