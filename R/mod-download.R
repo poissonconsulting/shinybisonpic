@@ -24,7 +24,6 @@ mod_download_ui <- function(id, label = "download") {
       size = "l"
     ),
     br(),
-    #tags$label("Download Data"), br(),
     downloadButton(ns("download_data"), "Clean Data")
   )
 
@@ -73,7 +72,7 @@ mod_download_server <- function(id, upload) {
 
       content = function(file) {
 
-        if (length(rv$data$Events) == 0) {
+        if (length(rv$data$event) == 0) {
           writexl::write_xlsx(upload$template_dl, file)
         } else {
           writexl::write_xlsx(rv$data, file)
