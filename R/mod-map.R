@@ -1,19 +1,18 @@
-#Copyright 2023 Province of Alberta
+# Copyright 2023 Province of Alberta
 
-#Licensed under the Apache License, Version 2.0 (the "License");
-#you may not use this file except in compliance with the License.
-#You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 
-#http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 
-#Unless required by applicable law or agreed to in writing, software
-#distributed under the License is distributed on an "AS IS" BASIS,
-#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#See the License for the specific language governing permissions and
-#limitations under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 mod_map_ui <- function(id, label = "map") {
-
   ns <- NS(id)
 
   instructions <- bs4Dash::box(
@@ -30,12 +29,10 @@ mod_map_ui <- function(id, label = "map") {
     column(width = 2, instructions),
     column(width = 10, leaflet::leafletOutput(ns("leaflet"), height = "90vh"))
   )
-
 }
 
 mod_map_server <- function(id, upload) {
   moduleServer(id, function(input, output, session) {
-
     ns <- session$ns
 
     rv <- reactiveValues(
@@ -93,7 +90,7 @@ mod_map_server <- function(id, upload) {
       proxy <- leaflet::leafletProxy(ns("leaflet"))
       proxy <- proxy |>
         leaflet::addCircleMarkers(
-          lng =  rv$location$longitude,
+          lng = rv$location$longitude,
           lat = rv$location$latitude,
           label = rv$location$location_id,
           fillColor = "#F1F1F1",
@@ -117,17 +114,17 @@ mod_map_server <- function(id, upload) {
       proxy <- proxy |>
         leaflet::clearGroup("site_highlight") |>
         leaflet::addCircleMarkers(
-        group = "site_highlight",
-        lng =  site_pick$longitude,
-        lat = site_pick$latitude,
-        label = site_pick$location_id,
-        fillColor = "#0070C4",
-        color = "#0070C4",
-        popup = leafpop::popupTable(
-          as.data.frame(site_pick),
-          row.numbers = FALSE
+          group = "site_highlight",
+          lng = site_pick$longitude,
+          lat = site_pick$latitude,
+          label = site_pick$location_id,
+          fillColor = "#0070C4",
+          color = "#0070C4",
+          popup = leafpop::popupTable(
+            as.data.frame(site_pick),
+            row.numbers = FALSE
+          )
         )
-      )
     })
 
     observe({
@@ -143,8 +140,5 @@ mod_map_server <- function(id, upload) {
           leaflet::clearMarkers()
       }
     })
-
   })
 }
-
-

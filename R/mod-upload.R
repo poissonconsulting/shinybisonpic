@@ -1,19 +1,18 @@
-#Copyright 2023 Province of Alberta
+# Copyright 2023 Province of Alberta
 
-#Licensed under the Apache License, Version 2.0 (the "License");
-#you may not use this file except in compliance with the License.
-#You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 
-#http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 
-#Unless required by applicable law or agreed to in writing, software
-#distributed under the License is distributed on an "AS IS" BASIS,
-#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#See the License for the specific language governing permissions and
-#limitations under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 mod_upload_ui <- function(id, label = "upload") {
-
   ns <- NS(id)
 
   instructions <- bs4Dash::box(
@@ -35,13 +34,11 @@ mod_upload_ui <- function(id, label = "upload") {
     column(width = 4, instructions),
     column(width = 8, uiOutput(ns("ui_table")))
   )
-
 }
 
 
 mod_upload_server <- function(id) {
   moduleServer(id, function(input, output, session) {
-
     ns <- session$ns
 
     rv <- reactiveValues(
@@ -64,7 +61,7 @@ mod_upload_server <- function(id) {
     observe({
       template_dl <- lapply(template_bison, function(x) {
         x$name <- NULL
-        x <- x[0,]
+        x <- x[0, ]
         x
       })
 
@@ -144,43 +141,46 @@ mod_upload_server <- function(id) {
     })
 
     # create and display uploaded data
-    observeEvent(input$upload, {
-      sheets_data <- readxl::excel_sheets(input$upload$datapath)
-      try_sheet_names <- try(
-        check_sheet_names(sheets_data, sheets),
-        silent = TRUE
-      )
-      if (is_try_error(try_sheet_names)) {
-        return(showModal(check_modal(try_sheet_names, ns)))
-      }
-      data <- lapply(sheets_data, function(x) {
-        readxl::read_excel(input$upload$datapath, sheet = x, na = c("", "NA"))
-      })
-      names(data) <- sheets_data
+    observeEvent(input$upload,
+      {
+        sheets_data <- readxl::excel_sheets(input$upload$datapath)
+        try_sheet_names <- try(
+          check_sheet_names(sheets_data, sheets),
+          silent = TRUE
+        )
+        if (is_try_error(try_sheet_names)) {
+          return(showModal(check_modal(try_sheet_names, ns)))
+        }
+        data <- lapply(sheets_data, function(x) {
+          readxl::read_excel(input$upload$datapath, sheet = x, na = c("", "NA"))
+        })
+        names(data) <- sheets_data
 
-      # check types match
-      # TO DO Turn on when ready in bisonpictools
-      data <- try(
-        # bisonpictools:::bpt_check_data(
-        #   location = data$location,
-        #   event = data$event,
-        #   template_bison
-        # )
-        chktemplate::check_data_format(
-          location = data$location,
-          event = data$event,
-          template = bisonpictools::template,
-          complete = TRUE
-        ),
-        silent = TRUE
-      )
-      if (is_try_error(data)) {
-        return(showModal(check_modal(data, ns)))
-      }
+        # check types match
+        # TO DO Turn on when ready in bisonpictools
+        data <- try(
+          # bisonpictools:::bpt_check_data(
+          #   location = data$location,
+          #   event = data$event,
+          #   template_bison
+          # )
+          chktemplate::check_data_format(
+            location = data$location,
+            event = data$event,
+            template = bisonpictools::template,
+            complete = TRUE
+          ),
+          silent = TRUE
+        )
+        if (is_try_error(data)) {
+          return(showModal(check_modal(data, ns)))
+        }
 
-      rv$data <- data
-      rv$state <- "upload"
-    }, label = "generating data")
+        rv$data <- data
+        rv$state <- "upload"
+      },
+      label = "generating data"
+    )
 
     observe({
       lapply(names(rv$data), function(x) {
@@ -190,7 +190,7 @@ mod_upload_server <- function(id) {
       })
     })
 
-    observeEvent(input$dismiss_modal,{
+    observeEvent(input$dismiss_modal, {
       rv$reset <- rv$reset + 1
       rv$data <- NULL
       rv$state <- NULL
@@ -198,6 +198,5 @@ mod_upload_server <- function(id) {
     })
 
     return(rv)
-
   })
 }

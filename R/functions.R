@@ -1,16 +1,16 @@
-#Copyright 2023 Province of Alberta
+# Copyright 2023 Province of Alberta
 
-#Licensed under the Apache License, Version 2.0 (the "License");
-#you may not use this file except in compliance with the License.
-#You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 
-#http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 
-#Unless required by applicable law or agreed to in writing, software
-#distributed under the License is distributed on an "AS IS" BASIS,
-#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#See the License for the specific language governing permissions and
-#limitations under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 # Convert Template ----
 
@@ -18,7 +18,7 @@ check_template <- function(x) {
   chk::chk_data(x)
   chk::chk_superset(names(x), "name")
   chk::chk_superset(x$name, c("description", "pkey", "chk"),
-               x_name = "template column names"
+    x_name = "template column names"
   )
   invisible(x)
 }
@@ -72,8 +72,9 @@ chk_to_constraint <- function(x) {
   y <- sort(rm_na(x))
   type <- class(y)
   type <- switch(type,
-                 "numeric" = "number",
-                 "character" = "word(s)", type
+    "numeric" = "number",
+    "character" = "word(s)",
+    type
   )
   if (length(y) == 1) {
     return(paste("any", type))
@@ -142,13 +143,12 @@ template_table <- function(data) {
       class = "row-border",
       tags$thead(
         tags$tr(
-          mapply(tags$th, colnames(data), style = sprintf("border-right: solid %spx;", c(0.5, rep(0, ncol(data)-1L))), SIMPLIFY = FALSE)
+          mapply(tags$th, colnames(data), style = sprintf("border-right: solid %spx;", c(0.5, rep(0, ncol(data) - 1L))), SIMPLIFY = FALSE)
         )
       )
     )
   ) |>
-  DT::formatStyle(1, `border-right` = "solid 0.5px")
-
+    DT::formatStyle(1, `border-right` = "solid 0.5px")
 }
 
 
@@ -199,13 +199,13 @@ code_sex_age <- function(x) {
   codes
 }
 
-is_try_error <- function(x){
+is_try_error <- function(x) {
   inherits(x, "try-error")
 }
 
 add_title_newlines <- function(x, max_nchars = 92) {
   nc <- nchar(x)
-  n <- ceiling(nc/max_nchars)
+  n <- ceiling(nc / max_nchars)
 
   up <- 0
   start <- 1
@@ -247,7 +247,3 @@ check_sheet_names <- function(sheets, template_sheets) {
     )
   }
 }
-
-
-
-

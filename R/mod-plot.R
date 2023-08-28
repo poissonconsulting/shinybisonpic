@@ -1,19 +1,18 @@
-#Copyright 2023 Province of Alberta
+# Copyright 2023 Province of Alberta
 
-#Licensed under the Apache License, Version 2.0 (the "License");
-#you may not use this file except in compliance with the License.
-#You may obtain a copy of the License at
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 
-#http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 
-#Unless required by applicable law or agreed to in writing, software
-#distributed under the License is distributed on an "AS IS" BASIS,
-#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#See the License for the specific language governing permissions and
-#limitations under the License.
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 mod_plot_ui <- function(id, label = "plot") {
-
   ns <- NS(id)
 
   instructions <- bs4Dash::box(
@@ -53,12 +52,10 @@ mod_plot_ui <- function(id, label = "plot") {
     column(width = 4, instructions),
     column(width = 8, plot)
   )
-
 }
 
 mod_plot_server <- function(id, upload) {
   moduleServer(id, function(input, output, session) {
-
     ns <- session$ns
 
     rv <- reactiveValues(
@@ -79,7 +76,7 @@ mod_plot_server <- function(id, upload) {
         ns("select_numerator_m"),
         label = NULL,
         choices = c(
-          "male calf", "male yearling", "male adult",  "male unknown",
+          "male calf", "male yearling", "male adult", "male unknown",
           "male 2 yr old", "male 3 yr old"
         )
       )
@@ -198,7 +195,7 @@ mod_plot_server <- function(id, upload) {
             "",
             paste(
               "Ratio of",
-              chk::cc(rv$numerator_human,  conj = " and ", ellipsis = 20L),
+              chk::cc(rv$numerator_human, conj = " and ", ellipsis = 20L),
               "per",
               chk::cc(rv$denominator_human, conj = " and ", ellipsis = 20L)
             )
@@ -216,6 +213,5 @@ mod_plot_server <- function(id, upload) {
         )
       }
     )
-
   })
 }

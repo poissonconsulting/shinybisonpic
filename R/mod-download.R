@@ -13,7 +13,6 @@
 # limitations under the License.
 
 mod_download_ui <- function(id, label = "download") {
-
   ns <- NS(id)
 
   instructions <- bs4Dash::box(
@@ -31,13 +30,11 @@ mod_download_ui <- function(id, label = "download") {
     column(width = 4, instructions),
     column(width = 8, uiOutput(ns("ui_table")))
   )
-
 }
 
 
 mod_download_server <- function(id, upload) {
   moduleServer(id, function(input, output, session) {
-
     ns <- session$ns
 
     rv <- reactiveValues(
@@ -69,9 +66,7 @@ mod_download_server <- function(id, upload) {
         time_stamp <- gsub(":", "-", time_stamp)
         paste0(time_stamp, "_bison-data", ".xlsx")
       },
-
       content = function(file) {
-
         if (length(rv$data$event) == 0) {
           writexl::write_xlsx(upload$template_dl, file)
         } else {
@@ -112,6 +107,5 @@ mod_download_server <- function(id, upload) {
         })
       })
     })
-
   })
 }
