@@ -1,6 +1,6 @@
 #### Download Data Help
 
-Get clean data out of the app that is ready for modeling. 
+Get processed data out of the app that is ready for modeling. 
 
 ##### Usage
 

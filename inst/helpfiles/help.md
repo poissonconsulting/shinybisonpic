@@ -1,11 +1,11 @@
 ### shinybisonpic Help
 
-**Overall workflow**
+**Workflow**
 
-1. Download template, fill in data and upload 
-2. View locations and verify all locations are correct 
+1. Download template, fill in data and upload file
+2. View locations on the landscape
 3. Explore sex-age ratios
-4. Download cleaned data 
+4. Download processed data ready for modeling
 
 **Where is help located**
 

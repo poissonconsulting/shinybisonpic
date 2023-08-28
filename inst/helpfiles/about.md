@@ -1,9 +1,5 @@
 ### shinybisonpic About
 
-The Ministry of Parks and Protected Areas in Alberta monitors wood bison by a variety of methods.
-This app makes analyzing camera trap photos of wood bison herds easy. Raw data can be uploaded and explored and a cleaned data set ready for modelling can be downloaded. 
-
-- what the purpose of the app is
-- how it does it
-- who the app is for
-- version info
+Alberta Environment and Parks is piloting using remote game cameras to monitor the composition of wood bison.
+This app aims to make exploring and analyzing classified camera trap data fast and easy. 
+Raw data is uploaded into the app, visualized and then prepared for modeling. 
