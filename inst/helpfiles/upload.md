@@ -24,7 +24,18 @@ The Required data format box at the top right of the page contains the checks an
 The data will not be uploaded to the app until the required data format is followed.
 The app is only able to detect one error at a time so this process may take several iterations as you work through various issues in the data format. 
 
+Description of the rows:
+
+- name: Name of the column.
+- description: Description of the column.
+- example: Example value for the column.
+- constraint: The type and allowed range of values for the column.
+- missing allowed: Whether missing values are allowed in the column. Missing values are blank cells in the excel file.
+- primary key: Columns that make up the primary key for the table, this is the set of columns that make the row unique.
+- joins to: Names the table the column joins to, the value must appear in the table listed for it to be allowed.For example a location_id must be in the *location* to be allowed in the *event* table. 
+
 Helpful tips:
 
 - download the template and copy your data to the template file 
 - words must be identical this includes sheet names, column names and cell values (ie they are case sensitive and space sensitive) 
+
