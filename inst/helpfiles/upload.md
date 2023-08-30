@@ -36,6 +36,6 @@ Description of the rows:
 
 Helpful tips:
 
-- download the template and copy your data to the template file 
+- download the template and copy your data in to the template file instead of changing your data file to follow the template format
 - words must be identical this includes sheet names, column names and cell values (ie they are case sensitive and space sensitive) 
 

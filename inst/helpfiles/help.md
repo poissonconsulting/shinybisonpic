@@ -11,7 +11,7 @@
 
 Each tab has its own help information which can be accessed by clicking on the question mark circle at the top of the instruction box of the tab. 
 
-**Please fix the following issue..**
+**Please fix the following issue...**
 
 The app will give informative error and help messages to guide you through the process. 
 If a box pops up saying 'Please fix the following issue..' read the message to understand the instructions provided. 
