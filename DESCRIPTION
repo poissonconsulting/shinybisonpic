@@ -36,7 +36,6 @@ Imports:
     shiny,
     shinyhelper,
     stringr,
-    tibble,
     writexl
 Suggests: 
     testthat (>= 3.0.0)
