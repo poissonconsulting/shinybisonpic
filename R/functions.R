@@ -102,7 +102,7 @@ is_try_error <- function(x) {
   inherits(x, "try-error")
 }
 
-add_title_newlines <- function(x, max_nchars = 92) {
+add_title_newlines <- function(x, max_nchars = 82) {
   nc <- nchar(x)
   n <- ceiling(nc / max_nchars)
 
