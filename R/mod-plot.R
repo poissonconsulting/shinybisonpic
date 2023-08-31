@@ -183,7 +183,7 @@ mod_plot_server <- function(id, upload) {
     output$download_button <- renderUI({
       req(rv$plot)
       req(upload$state)
-      downloadButton(ns("download_plot"), "Download Plot", class = "btn-plot")
+      downloadButton(ns("download_plot"), "Plot", class = "btn-plot")
     })
 
     output$download_plot <- downloadHandler(
