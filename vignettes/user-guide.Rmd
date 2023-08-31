@@ -50,40 +50,41 @@ When the app launches successfully you will see this page.
     - description: description of the column
     - example: example value for the column
     - constraint: the type and allowed range of values for the column
-    - missing allowed: whether missing values are allowed in the column. Missing values are blank cells in the excel file
+    - missing allowed: whether missing values are allowed in the column. Missing values are blank cells in the spreadsheet
     - primary key: columns that make up the primary key for the table, this is the set of columns that make the row unique
     - joins to: the name of the table the column joins to
       - the value must appear in the parent table for it to be allowed in the child table
-      - for example a location_id of `site_a` must be in the location table to be allowed in the event table
+      - for example a location_id of `ABWB001` must be in the location table to be allowed in the event table
   - Copy/move your data into the template file instead of formatting your data file to look like the template
   - Be careful working with text values like sheet names, column names, or text based values as the values must match identically meaning they are case and space sensitive
 - Review data 
-  - the data will not be accepted to the app unless the required data format is followed
+  - the data will not be accepted to the app unless the Required data format is followed
 
 #### 2. Upload data
 
  - Click the **Browse…** button and select a file
- - If the file is successfully uploaded it will appear in the Uploaded data box 
+  - If the file is not successfully uploaded a pop up box will appear with a message indicating which rules of the Required data format were not followed 
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/data-upload-failure.png")
+```
+*<font size="-1">Figure x. Data upload failed due to not following the Required data format, the data must be corrected and uploaded again. The upload failed because the word "one" was written in the f0 column when the f0 column only accepts integers between 0 and 900, the user needs to change the value from "one" to "1" and then upload the file again.</font>*
+ 
+ - Close the pop up box by clicking **Got it**
+ - Correct the error 
+ - Upload the corrected data
+ - Repeat until no more errors are detected
+   - The app is only able to detect one error at a time so this process may take several iterations as you work through various issues
+ 
+ - When the file is successfully uploaded it will appear in the Uploaded data box 
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/data-upload-successful.png")
 ```
 *<font size="-1">Figure x. Data upload is successful.</font>*
 
- - If the file is not successfully uploaded a pop up box will appear with an error message 
-```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("images/data-upload-failure.png")
-```
-*<font size="-1">Figure x. Data upload failed due to not following the Required data format, the data must be corrected and uploaded again.</font>*
- 
- - Close the pop up box
- - Correct the error
- - Upload the corrected data
- - Repeat until the file is accepted by the app
-   - The app is only able to detect one error at a time so this process may take several iterations as you work through various issues
 - Review the data in the Uploaded data box for errors or issues before continuing onto the next tab
   - You can: 
     - Increase the number of entries you can see in the table by changing the value in **Show entries**
-    - Sort the columns by clicking on the column name
+    - Sort by the column by clicking on the column name
     - Search for values by typing in the **Search:** field 
 
 ### Tab 2. Map Locations
@@ -91,17 +92,17 @@ knitr::include_graphics("images/data-upload-failure.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/map-locations-point.png")
 ```
-*<font size="-1">Figure x. Map Location tab showing the points on the map with location ABWB010 highlighted as its selected in the drop down and location ABWB014 clicked on to show a pop-up with the specific details about the location.</font>*
+*<font size="-1">Figure x. Map Location tab showing the points on the map with location ABWB010 highlighted as its selected in the drop-down and location ABWB014 clicked on to show a pop-up with the specific details about the location.</font>*
+
+The location_id’s from the location table will be displayed on the map.
 
 #### 1. Explore camera locations on a map
 
-- The location_id’s from the location table will be displayed on the map
-- Explore the points to ensure no data is missing and locations are as expected
+- Select a location from the drop-down menu to highlight it
+- Click on a point to show the name, latitude and longitude
 
 **Map Features**
 
-- Select the location name from the drop down menu to highlight the point on the map
-- Click on a point on the map to find the name and coordinates for that point
 - Use your mouse or arrow keys to move around the map
 - Use the +/- buttons at the top left of the map or scroll with your mouse to zoom in and out
 - Select the map type at top left of the map underneath the +/- buttons to switch between map types
@@ -113,7 +114,7 @@ knitr::include_graphics("images/map-locations-point.png")
   - Check that the latitude and longitude columns in the location table have values populated.
   - Check that the coordinates are decimal degree latitude and longitude values.
   - Zoom out to see if the points are somewhere else in the world.
-- Drop down field is empty
+- Drop down-field is empty
   - Make sure you have uploaded a data set in the Upload Data tab.
   - Check that the location_id column in the location table has values populated.
 - Map is frozen
@@ -170,7 +171,7 @@ Get data that is ready to be feed into the modeling app.
 
 - Review the data in the Model ready data box
 - Click **Download Clean Data** button to get an excel file
-  - The file name have the format YYYY-MM-DD_HH-MM-SS_bison_data.xlsx
+  - The file name will have the format YYYY-MM-DD_HH-MM-SS_bison_data.xlsx
 
 ### Next Steps in Modeling App
 
