@@ -27,8 +27,8 @@ mod_download_ui <- function(id, label = "download") {
   )
 
   fluidRow(
-    column(width = 4, instructions),
-    column(width = 8, uiOutput(ns("ui_table")))
+    column(width = 3, instructions),
+    column(width = 9, uiOutput(ns("ui_table")))
   )
 }
 

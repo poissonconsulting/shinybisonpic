@@ -26,8 +26,8 @@ mod_map_ui <- function(id, label = "map") {
   )
 
   fluidRow(
-    column(width = 2, instructions),
-    column(width = 10, leaflet::leafletOutput(ns("leaflet"), height = "90vh"))
+    column(width = 3, instructions),
+    column(width = 9, leaflet::leafletOutput(ns("leaflet"), height = "90vh"))
   )
 }
 
