@@ -1,11 +1,6 @@
 ---
 title: "shinybisonpic User Guide"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-output: 
-  github_document:
-    html_preview: false
-  rmarkdown::html_vignette:
-    default
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{User Guide}
   %\VignetteEncoding{UTF-8}
@@ -18,78 +13,92 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+<!-- Update date when changes are made -->
+August 30, 2023
 
 shinybisonpic is an online application that allows users to upload, view, and process their camera trap count data. 
 
-## Getting Starting 
+## Starting shinybisonpic
 
-### Access the App
+To access the app, open a web browser and go to  [https://poissonconsulting.shinyapps.io/shinybisonpic-dev/](https://poissonconsulting.shinyapps.io/shinybisonpic-dev/)
 
-The app can be accessed using the link: 
+## Layout
 
-The app is publicaly avaliable so no username or password is required to open the webpage.
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/app-overview.png")
+```
+*<font size="-1">Figure x. General layout of each tab.</font>*
 
-## Process
+## Steps
 
 ### Tab 1. Data Upload
 
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/home-screen.png" width="100%">
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/home-screen.png")
+```
 *<font size="-1">Figure x. Data upload tab and opening screen of app.</font>*
 
-If the app launches successfully you should see this page. 
+When the app launches successfully you will see this page. 
 
-Review the instructions in the help file for the tab by clicking the blue question mark in the instructions box on the left side of the page. 
+#### 1. Download and fill in template
 
-1. Download and fill in template.
-   - Click the Download Template button
-   - Open the excel file (template-bison.xlsx) that was downloaded to your computer
-   - Enter the data into the file
-   - Review data to ensure it follows the required data format
-2. Upload data.
-   - Click the Browse… button and select a file
-   - If the file is successfully uploaded it will appear in the Uploaded data box
-   - If the file is not successfully uploaded a pop up box will appear with an error message
-   - Close the pop up box
-   - Correct the error
-   - Upload the corrected data
-   - Repeat until the file is successfully uploaded
+- Click the **Download Template** button
+- Open the excel file (template-bison.xlsx) that was downloaded to your computer
+- Enter data into the template file following the rules of the Required data format (box at the top right of the page)
+  - Description of the rows in the Required data format box:
+    - name: name of the column
+    - description: description of the column
+    - example: example value for the column
+    - constraint: the type and allowed range of values for the column
+    - missing allowed: whether missing values are allowed in the column. Missing values are blank cells in the excel file
+    - primary key: columns that make up the primary key for the table, this is the set of columns that make the row unique
+    - joins to: the name of the table the column joins to
+      - the value must appear in the parent table for it to be allowed in the child table
+      - for example a location_id of `site_a` must be in the location table to be allowed in the event table
+  - Copy/move your data into the template file instead of formatting your data file to look like the template
+  - Be careful working with text values like sheet names, column names, or text based values as the values must match identically meaning they are case and space sensitive
+- Review data 
+  - the data will not be accepted to the app unless the required data format is followed
 
+#### 2. Upload data
 
-**Required Data Format**
-
-The Required data format box at the top right of the page contains the checks and rules the data is run through when uploaded. 
-The data will not be uploaded to the app until the required data format is followed. The app is only able to detect one error at a time so this process may take several iterations as you work through various issues in the data format.
-
-Description of the rows:
-
-- name: Name of the column.
-- description: Description of the column.
-- example: Example value for the column.
-- constraint: The type and allowed range of values for the column.
-- missing allowed: Whether missing values are allowed in the column. Missing values are blank cells in the excel file.
-- primary key: Columns that make up the primary key for the table, this is the set of columns that make the row unique.
-- joins to: Names the table the column joins to, the value must appear in the table listed for it to be allowed.For example a location_id must be in the location to be allowed in the event table.
-
-Helpful tips:
-
-- download the template and copy your data in to the template file instead of changing your data file to follow the template format
-- words must be identical this includes sheet names, column names and cell values (ie they are case sensitive and space sensitive)
-
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/data-upload-successful.png" width="100%">
+ - Click the **Browse…** button and select a file
+ - If the file is successfully uploaded it will appear in the Uploaded data box 
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/data-upload-successful.png")
+```
 *<font size="-1">Figure x. Data upload is successful.</font>*
 
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/data-upload-failure.png" width="100%">
-*<font size="-1">Figure x. Data upload failed due to not following the Required data format.</font>*
+ - If the file is not successfully uploaded a pop up box will appear with an error message 
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/data-upload-failure.png")
+```
+*<font size="-1">Figure x. Data upload failed due to not following the Required data format, the data must be corrected and uploaded again.</font>*
+ 
+ - Close the pop up box
+ - Correct the error
+ - Upload the corrected data
+ - Repeat until the file is accepted by the app
+   - The app is only able to detect one error at a time so this process may take several iterations as you work through various issues
+- Review the data in the Uploaded data box for errors or issues before continuing onto the next tab
+  - You can: 
+    - Increase the number of entries you can see in the table by changing the value in **Show entries**
+    - Sort the columns by clicking on the column name
+    - Search for values by typing in the **Search:** field 
 
 ### Tab 2. Map Locations
 
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/map-locations-point.png" width="100%">
-*<font size="-1">Figure x. Map Location tab showing the points on the map with location RLBH012 highlighted as its selected in the drop down and location RLBH018 clicked on to show a pop-up with the specific details about the location.</font>*
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/map-locations-point.png")
+```
+*<font size="-1">Figure x. Map Location tab showing the points on the map with location XXXX highlighted as its selected in the drop down and location XXXX clicked on to show a pop-up with the specific details about the location.</font>*
 
-Explore the location of each camera on the map.
-The location_id’s from the location table will be displayed on the map.
+#### 1. Explore camera locations on a map
 
-**Features**
+- The location_id’s from the location table will be displayed on the map
+- Explore the points to ensure no data is missing and locations are as expected
+
+**Map Features**
 
 - Select the location name from the drop down menu to highlight the point on the map
 - Click on a point on the map to find the name and coordinates for that point
@@ -112,7 +121,9 @@ The location_id’s from the location table will be displayed on the map.
 
 ### Tab 3. Plot Data
 
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/plot-data-blank-page.png" width="100%">
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/plot-data-blank-page.png")
+```
 *<font size="-1">Figure x. Plot Data tab with no variables selected.</font>*
 
 Explore the ratios of various sex-age groups by selecting any combinations of values.
@@ -122,29 +133,43 @@ For the plot to appear, you must:
 - select at least one value for the Numerator
 - select at least one value for the Denominator
 
-The plot can be downloaded as a .png file by pressing the Download Plot button on the top right of the Plots box.
+#### 1. Select values for the Numerator
 
-Example
-To view a plot of female calves against all calves:
+- Tick at least one sex-age group
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/plot-data-numerator-selected.png")
+```
+*<font size="-1">Figure x. Shows female calf selected for the the Numerator.</font>*
 
-In the Numerator tick female calf.
-In the Denominator tick male calf, female calf and unknown calf.
+#### 2. Select values for the Denominator
 
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/plot-data-ratios-selected.png" width="100%">
-*<font size="-1">Figure x. Plot Data tab showing example data.</font>*
+- Tick at least one sex-age group
+- A plot will start to appear as soon as a box is ticked in the Denominator (assuming boxes are already ticked in the Numerator section)
+- Wait a second after you have ticked all the boxes you want to let the plot render
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/plot-data-num-den-selected.png")
+```
+*<font size="-1">Figure x. Shows male calf, female calf and unknown calf selected for the Denominator. Since both the Numerator and Denominator have values selected the plot is displayed. This will plot female calves against all calves.</font>*
+
+#### 3. Download the plot
+
+- Click the **Download Plot** button to get a .png file of the plot
+- The plot will have a title that lists which values were ticked for the numerator and denominator
+- The download button is only visible when a plot is present
 
 ### Tab 4. Download Data
 
-<img src= "https://github.com/poissonconsulting/shinybisonpic/blob/main/vignettes/images/download-data-data-present.png" width="100%">
-*<font size="-1">Figure x. Download Data tab showing processed data.</font>*
+```{r out.width = '100%', echo = FALSE}
+knitr::include_graphics("images/download-data-data-present.png")
+```
+*<font size="-1">Figure x. Download Data tab showing processed data in the Model ready data box.</font>*
 
-Get processed data out of the app that is ready for modeling.
-Click the Download Clean Data button.
+Get data that is ready to be feed into the modeling app.
 
-**Trouble Shooting**
+#### 1. Download the processed data
 
-- No data in the Model ready data box
-  - Check that you successfully uploaded a data set in the Upload Data tab.
+- Review the data in the Model ready data box
+- Click **Download Clean Data** button
 
 ### Next Steps in Modeling App
 
