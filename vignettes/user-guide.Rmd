@@ -91,7 +91,7 @@ knitr::include_graphics("images/data-upload-failure.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/map-locations-point.png")
 ```
-*<font size="-1">Figure x. Map Location tab showing the points on the map with location XXXX highlighted as its selected in the drop down and location XXXX clicked on to show a pop-up with the specific details about the location.</font>*
+*<font size="-1">Figure x. Map Location tab showing the points on the map with location ABWB010 highlighted as its selected in the drop down and location ABWB014 clicked on to show a pop-up with the specific details about the location.</font>*
 
 #### 1. Explore camera locations on a map
 
@@ -153,7 +153,7 @@ knitr::include_graphics("images/plot-data-num-den-selected.png")
 
 #### 3. Download the plot
 
-- Click the **Download Plot** button to get a .png file of the plot
+- Click the **Download Plot** button to get a PNG file (shinybisonpic_ratio_plot.png) of the plot
 - The plot will have a title that lists which values were ticked for the numerator and denominator
 - The download button is only visible when a plot is present
 
@@ -169,7 +169,8 @@ Get data that is ready to be feed into the modeling app.
 #### 1. Download the processed data
 
 - Review the data in the Model ready data box
-- Click **Download Clean Data** button
+- Click **Download Clean Data** button to get an excel file
+  - The file name have the format YYYY-MM-DD_HH-MM-SS_bison_data.xlsx
 
 ### Next Steps in Modeling App
 
