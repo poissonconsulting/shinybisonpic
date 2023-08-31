@@ -37,12 +37,10 @@ run_bisonpic_app()
 
 ### Overview of How to Use the App
 
-- Download the template for the tab
-- Fill in the template with your data
-- Upload your raw data
-- View the locations spatially
-- Explore ratios of sex-age classes
-- Download cleaned and processed data ready for demographic modelling
+- Download template, fill with data and upload to the app
+- View locations on the landscape
+- Explore sex-age ratios
+- Download processed data ready for modeling
 
 ## Contribution
 
