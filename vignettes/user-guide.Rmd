@@ -43,7 +43,8 @@ When the app launches successfully you will see this page.
 #### 1. Download and fill in template
 
 - Click the **Download Template** button
-- Open the excel file (template-bison.xlsx) that was downloaded to your computer
+- Open the excel file that was downloaded to your computer
+  - The file name will be *template-bison.xlsx*
 - Enter data into the template file following the rules of the Required data format (box at the top right of the page)
   - Description of the rows in the Required data format box:
     - name: name of the column
@@ -146,7 +147,7 @@ knitr::include_graphics("images/plot-data-numerator-selected.png")
 
 - Tick at least one sex-age group
 - A plot will start to appear as soon as a box is ticked in the Denominator (assuming boxes are already ticked in the Numerator section)
-- Wait a second after you have ticked all the boxes you want to let the plot render
+- Wait a second after you have ticked all the boxes to let the plot render
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/plot-data-num-den-selected.png")
 ```
@@ -154,9 +155,10 @@ knitr::include_graphics("images/plot-data-num-den-selected.png")
 
 #### 3. Download the plot
 
-- Click the **Download Plot** button to get a PNG file (shinybisonpic_ratio_plot.png) of the plot
+- Click the **Download Plot** button to get a PNG file of the plot
+  - The file name will be *shinybisonpic_ratio_plot.png*
 - The plot will have a title that lists which values were ticked for the numerator and denominator
-- The download button is only visible when a plot is present
+- The download button is only visible when a plot is rendered
 
 ### Tab 4. Download Data
 
@@ -171,7 +173,7 @@ Get data that is ready to be feed into the modeling app.
 
 - Review the data in the Model ready data box
 - Click **Download Clean Data** button to get an excel file
-  - The file name will have the format YYYY-MM-DD_HH-MM-SS_bison_data.xlsx
+  - The file name will have the format *YYYY-MM-DD_HH-MM-SS_bison_data.xlsx*
 
 ### Next Steps in Modeling App
 
