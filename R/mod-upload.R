@@ -156,18 +156,11 @@ mod_upload_server <- function(id) {
         })
         names(data) <- sheets_data
 
-        # check types match
-        # TO DO Turn on when ready in bisonpictools
+        # check data against template requirements
         data <- try(
-          # bisonpictools:::bpt_check_data(
-          #   location = data$location,
-          #   event = data$event,
-          #   template_bison
-          # )
-          chktemplate::check_data_format(
+          bisonpictools:::bpt_check_data(
             location = data$location,
             event = data$event,
-            template = bisonpictools::template,
             complete = TRUE
           ),
           silent = TRUE
