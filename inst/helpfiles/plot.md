@@ -1,6 +1,7 @@
 #### Plot Data Help
 
-Explore the ratios of various sex-age groups by selecting any combinations of values.   
+Explore the ratios of various sex-age groups by selecting any combinations of values.
+The ratio that is plotted is numerator:(denominator + numerator) to avoid issues with undefined or infinite values when numerator or denominator equals zero.
 
 For the plot to appear, you must:
 
