@@ -63,7 +63,7 @@ mod_map_server <- function(id, upload) {
         leaflet::addProviderTiles(
           "Esri.WorldImagery",
           options = leaflet::providerTileOptions(opacity = 1),
-          group = "Satelite"
+          group = "Satellite"
         ) |>
         leaflet::addProviderTiles(
           "CartoDB.Positron",
@@ -71,7 +71,7 @@ mod_map_server <- function(id, upload) {
           group = "Open Street Map"
         ) |>
         leaflet::addLayersControl(
-          baseGroups = c("Satelite", "Open Street Map"),
+          baseGroups = c("Satellite", "Open Street Map"),
           options = leaflet::layersControlOptions(collapsed = FALSE),
           position = "topleft"
         ) |>
@@ -93,8 +93,8 @@ mod_map_server <- function(id, upload) {
           lng = rv$location$longitude,
           lat = rv$location$latitude,
           label = rv$location$location_id,
-          fillColor = "#F1F1F1",
-          color = "#F1F1F1",
+          fillColor = "#0070C4",
+          color = "#0070C4",
           popup = leafpop::popupTable(
             as.data.frame(rv$location),
             row.numbers = FALSE
@@ -118,8 +118,8 @@ mod_map_server <- function(id, upload) {
           lng = site_pick$longitude,
           lat = site_pick$latitude,
           label = site_pick$location_id,
-          fillColor = "#0070C4",
-          color = "#0070C4",
+          fillColor = "#edb700",
+          color = "#edb700",
           popup = leafpop::popupTable(
             as.data.frame(site_pick),
             row.numbers = FALSE
