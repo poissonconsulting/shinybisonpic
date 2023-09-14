@@ -14,5 +14,6 @@
 
 #' @import bs4Dash
 #' @importFrom pkgload load_all
-#' @rawNamespace import(shiny, except = c(p,tabsetPanel,column, updateTabsetPanel, insertTab, actionButton, navbarMenu))
+#' @rawNamespace import(shiny, except = c(p,tabsetPanel,column,
+#'   updateTabsetPanel, insertTab, actionButton, navbarMenu))
 NULL

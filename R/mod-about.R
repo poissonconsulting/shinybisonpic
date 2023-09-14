@@ -37,8 +37,10 @@ mod_about_server <- function(id) {
 
     output$text_1 <- renderText({
       paste0(
-        "bisonpictools version: ", as.character(utils::packageVersion("bisonpictools")), "<br/>",
-        "shinybisonpic version: ", as.character(utils::packageVersion("shinybisonpic"))
+        "bisonpictools version: ",
+        as.character(utils::packageVersion("bisonpictools")), "<br/>",
+        "shinybisonpic version: ",
+        as.character(utils::packageVersion("shinybisonpic"))
       )
     })
     output$ui_text_1 <- renderUI({

@@ -42,7 +42,15 @@ template_table <- function(data) {
       class = "row-border",
       tags$thead(
         tags$tr(
-          mapply(tags$th, colnames(data), style = sprintf("border-right: solid %spx;", c(0.5, rep(0, ncol(data) - 1L))), SIMPLIFY = FALSE)
+          mapply(
+            tags$th,
+            colnames(data),
+            style = sprintf(
+              "border-right: solid %spx;",
+              c(0.5, rep(0, ncol(data) - 1L))
+            ),
+            SIMPLIFY = FALSE
+          )
         )
       )
     )
@@ -104,7 +112,8 @@ is_try_error <- function(x) {
 
 # Check Functions ----
 
-check_modal <- function(check, ns, title = "Please fix the following issue ...") {
+check_modal <- function(check, ns,
+                        title = "Please fix the following issue ...") {
   msg <- gsub("^Error (.*?)( : )", "", check[1])
   msg <- gsub("Error : ", "", msg)
   modalDialog(
