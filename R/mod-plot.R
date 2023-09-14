@@ -189,16 +189,12 @@ mod_plot_server <- function(id, upload) {
     output$download_plot <- downloadHandler(
       filename = "shinybisonpic_ratio_plot.png",
       content = function(file) {
-        title <- add_title_newlines(
-          gsub(
-            "'",
-            "",
-            paste(
-              "Ratio of",
-              chk::cc(rv$numerator_human, conj = " and ", ellipsis = 20L),
-              "per",
-              chk::cc(rv$denominator_human, conj = " and ", ellipsis = 20L)
-            )
+        title <- gsub(
+          "'",
+          "",
+          paste0(
+            "Numerator: ", chk::cc(rv$numerator, ellipsis = 20L), "\n",
+            "Denominator: ", chk::cc(rv$denominator, ellipsis = 20L)
           )
         )
 
