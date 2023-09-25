@@ -128,7 +128,7 @@ knitr::include_graphics("images/plot-data-blank-page.png")
 ```
 *<font size="-1">Figure x. Plot Data tab with no variables selected.</font>*
 
-Explore the ratios of various sex-age groups by selecting any combinations of values.
+Explore the ratios (numerator/numerator + denominator) of various sex-age groups by selecting any combinations of values.
 
 For the plot to appear, you must:
 
@@ -167,7 +167,7 @@ knitr::include_graphics("images/download-data-data-present.png")
 ```
 *<font size="-1">Figure x. Download Data tab showing processed data in the Model ready data box.</font>*
 
-Get data that is ready to be feed into the modeling app.
+Get data that is ready to be fed into the modeling app.
 
 #### 1. Download the processed data
 
