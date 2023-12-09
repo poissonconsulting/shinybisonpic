@@ -31,11 +31,6 @@ app_server <- function(input, output, session) {
     data
   )
 
-  mod_download_server(
-    "mod_download_ui",
-    data
-  )
-
   mod_help_server(
     "mod_help_ui"
   )
