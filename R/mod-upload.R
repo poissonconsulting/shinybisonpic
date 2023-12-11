@@ -161,7 +161,11 @@ mod_upload_server <- function(id) {
           bisonpictools::bpt_check_data(
             location = data$location,
             event = data$event,
-            complete = TRUE
+            census = data$census,
+            proportion_calf = data$proportion_calf,
+            complete = TRUE,
+            join = TRUE,
+            check_study_years = TRUE
           ),
           silent = TRUE
         )
