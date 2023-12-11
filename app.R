@@ -1,2 +1,2 @@
 pkgload::load_all(".")
-run_bisonpic_app()
+launch_shinybisonpic()

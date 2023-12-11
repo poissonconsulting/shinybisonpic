@@ -27,7 +27,7 @@ remotes::install_github("poissonconsulting/shinybisonpic")
 ``` r
 # install.packages("shinybisonpic")
 library(shinybisonpic)
-run_bisonpic_app()
+launch_shinybisonpic()
 ```
 
 ### How to Launch the App with RStudio Addins Button
