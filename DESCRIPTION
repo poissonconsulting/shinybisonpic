@@ -35,7 +35,6 @@ Imports:
     readxl,
     shiny,
     shinyhelper,
-    stringr,
     writexl
 Suggests: 
     knitr,
