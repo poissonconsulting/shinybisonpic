@@ -158,7 +158,7 @@ mod_upload_server <- function(id) {
 
         # check data against template requirements
         data <- try(
-          bisonpictools:::bpt_check_data(
+          bisonpictools::bpt_check_data(
             location = data$location,
             event = data$event,
             complete = TRUE
