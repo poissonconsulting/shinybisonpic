@@ -160,21 +160,6 @@ knitr::include_graphics("images/plot-data-num-den-selected.png")
 - The plot will have a title that lists which values were ticked for the numerator and denominator
 - The download button is only visible when a plot is rendered
 
-### Tab 4. Download Data
-
-```{r out.width = '100%', echo = FALSE}
-knitr::include_graphics("images/download-data-data-present.png")
-```
-*<font size="-1">Figure x. Download Data tab showing processed data in the Model ready data box.</font>*
-
-Get data that is ready to be fed into the modeling app.
-
-#### 1. Download the processed data
-
-- Review the data in the Model ready data box
-- Click **Download Clean Data** button to get an excel file
-  - The file name will have the format *YYYY-MM-DD_HH-MM-SS_bison_data.xlsx*
-
 ### Next Steps in Modeling App
 
 #### TO DO
