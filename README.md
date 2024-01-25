@@ -4,7 +4,6 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/R-CMD-check.yaml)
-[![deploy-app](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/deploy-app.yaml/badge.svg)](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/deploy-app.yaml)
 <!-- badges: end -->
 
 `shinybisonpic` is a Shiny app for visualizing wood bison camera trap
