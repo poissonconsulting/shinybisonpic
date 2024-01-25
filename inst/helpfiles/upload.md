@@ -32,7 +32,7 @@ Description of the rows:
 - constraint: The type and allowed range of values for the column.
 - missing allowed: Whether missing values are allowed in the column. Missing values are blank cells in the excel file.
 - primary key: Columns that make up the primary key for the table, this is the set of columns that make the row unique.
-- joins to: Names the table the column joins to, the value must appear in the table listed for it to be allowed.For example a location_id must be in the *location* to be allowed in the *event* table. 
+- joins to: Names the table the column joins to, the value must appear in the table listed for it to be allowed.For example a location_id must be in the *location* table to be allowed in the *event* table. 
 
 Helpful tips:
 
