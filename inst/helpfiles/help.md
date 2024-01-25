@@ -5,7 +5,6 @@
 1. Download template, fill in data and upload file
 2. View locations on the landscape
 3. Explore sex-age ratios
-4. Download processed data ready for modeling
 
 **Where is help located**
 

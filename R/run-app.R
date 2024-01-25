@@ -20,9 +20,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' run_bisonpic_app()
+#' launch_shinybisonpic()
 #' }
-run_bisonpic_app <- function() {
+launch_shinybisonpic <- function() {
   shiny::shinyAppDir(
     system.file("app", package = "shinybisonpic"),
     options = list("launch.browser" = TRUE)

@@ -158,10 +158,14 @@ mod_upload_server <- function(id) {
 
         # check data against template requirements
         data <- try(
-          bisonpictools:::bpt_check_data(
+          bisonpictools::bpt_check_data(
             location = data$location,
             event = data$event,
-            complete = TRUE
+            census = data$census,
+            proportion_calf = data$proportion_calf,
+            complete = TRUE,
+            join = TRUE,
+            check_study_years = TRUE
           ),
           silent = TRUE
         )

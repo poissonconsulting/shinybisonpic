@@ -13,5 +13,5 @@
 # limitations under the License.
 
 shinybisonpic_addin <- function() {
-  shinybisonpic::run_bisonpic_app()
+  shinybisonpic::launch_shinybisonpic()
 }

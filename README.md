@@ -8,7 +8,7 @@
 <!-- badges: end -->
 
 `shinybisonpic` is a Shiny app for visualizing wood bison camera trap
-data and preparing the raw data for modeling.
+locations and the ratios of various sex-age groups.
 
 ## Usage
 
@@ -27,7 +27,7 @@ remotes::install_github("poissonconsulting/shinybisonpic")
 ``` r
 # install.packages("shinybisonpic")
 library(shinybisonpic)
-run_bisonpic_app()
+launch_shinybisonpic()
 ```
 
 ### How to Launch the App with RStudio Addins Button
@@ -40,7 +40,6 @@ run_bisonpic_app()
 - Download template, fill with data and upload to the app
 - View locations on the landscape
 - Explore sex-age ratios
-- Download processed data ready for modeling
 
 ## Contribution
 

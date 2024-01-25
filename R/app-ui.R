@@ -45,11 +45,6 @@ app_ui <- function() {
           icon = icon("chart-gantt")
         ),
         menuItem(
-          "Download Data",
-          tabName = "download",
-          icon = icon("download")
-        ),
-        menuItem(
           "Help",
           tabName = "help",
           icon = icon("question")
@@ -75,10 +70,6 @@ app_ui <- function() {
         tabItem(
           tabName = "plot",
           mod_plot_ui("mod_plot_ui")
-        ),
-        tabItem(
-          tabName = "download",
-          mod_download_ui("mod_download_ui")
         ),
         tabItem(
           tabName = "help",
