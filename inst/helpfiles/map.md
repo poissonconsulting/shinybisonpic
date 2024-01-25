@@ -12,7 +12,7 @@ The location_id's from the *location* table will be displayed on the map.
 - Use the +/- buttons at the top left of the map or scroll with your mouse to zoom in and out
 - Select the map type at top left of the map underneath the +/- buttons to switch between map types
 
-##### Trouble Shooting
+##### Troubleshooting
 
 **No points on the map**
 
