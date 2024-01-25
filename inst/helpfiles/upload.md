@@ -5,18 +5,18 @@ Get raw data into the app by filling out the template and uploading the file. Th
 ##### Process
 
 1. Download and fill in template. 
-   - Click the **Download Template** button
-   - Open the excel file (template-bison.xlsx) that was downloaded to your computer
-   - Enter the data into the file
-   - Review data to ensure it follows the required data format
+   - Click the **Download Template** button.
+   - Open the excel file (template-bison.xlsx) that was downloaded to your computer.
+   - Enter the data into the file.
+   - Review data to ensure it follows the required data format.
 2. Upload data.
-   - Click the **Browse...** button and select a file
-   - If the file is successfully uploaded it will appear in the Uploaded data box
-   - If the file is not successfully uploaded a pop up box will appear with an error message
-     - Close the pop up box
-     - Correct the error
-     - Upload the corrected data
-     - Repeat until the file is successfully uploaded
+   - Click the **Browse...** button and select a file.
+   - If the file is successfully uploaded it will appear in the Uploaded data box.
+   - If the file is not successfully uploaded a pop-up box will appear with an error message
+     - Close the pop-up box.
+     - Correct the error.
+     - Upload the corrected data.
+     - Repeat until the file is successfully uploaded.
    
 ##### Required Data Format
 
@@ -32,10 +32,10 @@ Description of the rows:
 - constraint: The type and allowed range of values for the column.
 - missing allowed: Whether missing values are allowed in the column. Missing values are blank cells in the excel file.
 - primary key: Columns that make up the primary key for the table, this is the set of columns that make the row unique.
-- joins to: Names the table the column joins to, the value must appear in the table listed for it to be allowed.For example a location_id must be in the *location* table to be allowed in the *event* table. 
+- joins to: Names the table the column joins to, the value must appear in the table listed for it to be allowed. For example, a location_id must be in the *location* table to be allowed in the *event* table. 
 
 Helpful tips:
 
-- download the template and copy your data in to the template file instead of changing your data file to follow the template format
-- words must be identical this includes sheet names, column names and cell values (ie they are case sensitive and space sensitive) 
+- Download the template and copy your data into the template file instead of changing your data file to follow the template format.
+- Words must be identical this includes sheet names, column names and cell values (ie they are case sensitive and space sensitive).
 

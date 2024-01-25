@@ -6,11 +6,11 @@ The location_id's from the *location* table will be displayed on the map.
 
 ##### Usage
 
-- Select the location name from the drop-down menu to highlight the point on the map
-- Click on a point on the map to find the name and coordinates for that point
-- Use your mouse or arrow keys to move around the map
-- Use the +/- buttons at the top left of the map or scroll with your mouse to zoom in and out
-- Select the map type at top left of the map underneath the +/- buttons to switch between map types
+- Select the location name from the drop-down menu to highlight the point on the map.
+- Click on a point on the map to find the name and coordinates for that point.
+- Use your mouse or arrow keys to move around the map.
+- Use the +/- buttons at the top left of the map or scroll with your mouse to zoom in and out.
+- Select the map type at top left of the map underneath the +/- buttons to switch between map types.
 
 ##### Troubleshooting
 
