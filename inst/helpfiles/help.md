@@ -20,7 +20,7 @@ When this box pops up you must rectify the issue to continue.
 **App is not working**
 
 If it appears the app has frozen or is not responding, try restarting your browser. 
-Different browser may display information differently, try a different browser if the app is not working. R shiny applications can take some time to generate results, ensure you have waited enough time before restarting. 
+Different browsers may display information differently, try a different browser if the app is not working. R shiny applications can take some time to generate results, ensure you have waited enough time before restarting. 
 
 **How to report a problem**
 
