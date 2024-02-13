@@ -1,6 +1,6 @@
 ---
 title: "User Guide"
-output: rmarkdown::html_vignette
+output: pdf_document
 vignette: >
   %\VignetteIndexEntry{User Guide}
   %\VignetteEncoding{UTF-8}
