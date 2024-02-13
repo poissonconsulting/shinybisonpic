@@ -23,12 +23,11 @@ cat(format(Sys.time(), "%B %d, %Y"))
 
 ## Introduction
 
-Alberta Environment and Parks is piloting using remote game cameras to monitor the herd composition of wood bison. 
-Three R packages have been developed to work together to achieve this goal. 
-The underlying functionality is in [`bisonpictools`](https://github.com/poissonconsulting/bisonpictools) which has functions to clean and process data, model, and visualize data.
-The two apps which are built as R packages which are a user friendly interface to [`bisonpictools`](https://github.com/poissonconsulting/bisonpictools). 
-The first app is [`shinybisonpic`](https://github.com/poissonconsulting/shinybisonpic) which allows users to explore the data by viewing the locations of cameras and the ratios of various sex-age groups. 
-The second app is [`runbisonpic`](https://github.com/poissonconsulting/runbisonpic) which allows users to run a model to see the abundance class, abundance total, survival, fecundity, and various sex-age ratios. 
+Alberta Environment and Parks is piloting the use of remote game cameras to monitor the herd composition of wood bison. 
+Three R packages have been developed to work together to achieve this goal. The underlying functionality is in [`bisonpictools`](https://github.com/poissonconsulting/bisonpictools), a package which has functions to clean, process, model, and visualize data. 
+The other two R packages are apps that provide a user friendly interface to [`bisonpictools`](https://github.com/poissonconsulting/bisonpictools). 
+The first app is [`shinybisonpic`](https://github.com/poissonconsulting/shinybisonpic) which allows users to explore the data by viewing the locations of cameras and the ratios of selected sex-age groups. 
+The second app is [`runbisonpic`](https://github.com/poissonconsulting/runbisonpic) which allows users to run a model to calculate the abundance by class, total abundance, survival, fecundity, and various sex-age ratios.
 
 ## User Interface Overview
 
@@ -38,7 +37,7 @@ knitr::include_graphics("images/app-overview.png")
 *<font size="-1">Figure 1. General layout of the apps.</font>*
 
 - To navigate between tabs, click on a new tab. 
-- To access the instructions for the tab, click the help button (question mark).
+- To access the instructions for the tab, click the help button (?).
 
 ## shinybisonpic
 
@@ -52,9 +51,10 @@ To access the app, open a web browser and go to  [https://poissonconsulting.shin
 
 1. Download template, fill in data and upload file
 2. View locations on the landscape
-3. Explore sex-age ratios
+3. Explore plots of sex-age ratios
 
-The only required order of this app is to upload the data first and then either the locations or ratios can be explored next. 
+The initial step of uploading data is required before using subsequent tabs. 
+Once the data is uploaded, you can explore the subsequent tabs in any order that suits your needs. 
 
 ### Detailed Steps
 
@@ -125,7 +125,8 @@ knitr::include_graphics("images/shinybisonpic-data-upload-successful.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/shinybisonpic-map-locations-point.png")
 ```
-*<font size="-1">Figure 5. Example of the Map Locations tab showing the points on the map with location LOCID11 highlighted as its selected in the drop-down and location LOCID2 clicked on to show a pop-up with the specific details about the location.</font>*
+*<font size="-1">Figure 5. Example of the Map Locations tab showing the points of each camera trap on the map. Location LOCID11 has been selected in the drop-down menu so is highlighted in yellow. 
+Clicking on a point (here, on location LOCID2) shows a pop-up with specific details about that location.</font>*
 
 The location_id’s from the location table will be displayed on the map.
 
@@ -137,7 +138,7 @@ Data must first be uploaded through the Upload Data tab for data to be displayed
 - **(B)** Select a location from the drop-down menu to highlight it.
 - **(C)** Click on a point to show the name, latitude, and longitude.
 
-There is no order to the **(B)** or **(C)**, so these steps can be done in any order or at any time once data has been uploaded into the app. 
+There is no order to **(B)** or **(C)**, so these steps can be done in any order or at any time once data has been uploaded into the app. 
 
 **Map Features**
 
@@ -193,11 +194,11 @@ knitr::include_graphics("images/shinybisonpic-plot-data-num-den-selected.png")
 
 - No plot is appearing.
   - Make sure at least one value is selected in the Numerator and Denominator section.
-  - Confirm that a data set was successfully in the Upload Data tab.
+  - Confirm that a data set was successfully uploaded in the Upload Data tab.
 
 ### How to Report Issues 
 
-To report a bug or issue with the app, you must submit an [Issue](https://github.com/poissonconsulting/shinybisonpic/issues) through GitHub. 
+To report a bug or issue with the app, you must submit an Issue through [GitHub](https://github.com/poissonconsulting/shinybisonpic/issues). 
 
 If the issue is critical and time sensitive then submit the Issue and contact the creator (maintainer) who is listed in the [DESCRIPTION file](https://github.com/poissonconsulting/shinybisonpic/blob/main/DESCRIPTION). 
 
@@ -234,6 +235,10 @@ knitr::include_graphics("images/runbisonpic-addins-button.png")
 
 The order of steps are required to be followed in this app, first data must be uploaded, second the model run and finally the results can be explored.  
 
+Since this is a different app the data needs to be uploaded into this app again.
+The first step of filling in the template and uploading the data is the same in both apps.
+The templates and data format is the same so you can use the template file in both apps. 
+
 ### Detailed Steps 
 
 #### Data Upload
@@ -250,6 +255,11 @@ When the app launches successfully you will see this page.
 Data must be first uploaded in the Upload Data tab for the Run Model tab to work.
 
 ##### 1. Download and fill in template
+
+&nbsp;
+
+Both apps use the same data template so you can skip **(A)** and **(B)** if you have already done those steps in the shinybisonpic app. 
+The data still needs to be uploaded into the app so skip to **(C)** if the template is already filled out. 
 
 - **(A)** Click the **Download Template** button to download an excel template.
 - Locate the template file that was downloaded.
@@ -313,6 +323,7 @@ knitr::include_graphics("images/runbisonpic-model-tab.png")
 - **(C)** Select the model mode.
 - **(D)** Press the run button.
    - Model may take over 24 hours to run, be patient. 
+     - The app and RStudio must be left open until the run is completed which means the computer cannot be turned off or set to sleep. 
    - **(E)** The run is complete when the Outbox is populated with a table.
    - If there is an issue a pop-up box will appear indicating something is not valid, this must be fixed, and the run button will need to be pressed again to restart the model run.
    - The app has crashed and needs to be restarted if any of the following occur:
@@ -397,8 +408,8 @@ There are three model modes:
 **ess**
 
 - Effective sample size (ess).
-- The number of independent samples with the same estimation power as the n autocorrelated samples.
-- Measure of how much independent information there is in autocorrelated chains.
+- The number of independent samples with the same estimation power as the n auto-correlated samples.
+- Measure of how much independent information there is in auto correlated chains.
 - Doubling the thinning rate doubles the ess.
 
 **rhat**
@@ -490,7 +501,7 @@ knitr::include_graphics("images/runbisonpic-results.png")
 
 ### How to Report Issues 
 
-To report a bug or issue with the app, you must submit an [Issue](https://github.com/poissonconsulting/runbisonpic/issues) through GitHub. 
+To report a bug or issue with the app, you must submit an Issue through [GitHub](https://github.com/poissonconsulting/runbisonpic/issues). 
 
 If the issue is critical and time sensitive then submit the Issue and contact the creator (maintainer) who is listed in the [DESCRIPTION file](https://github.com/poissonconsulting/runbisonpic/blob/main/DESCRIPTION). 
 
@@ -503,7 +514,7 @@ The shinybisonpic and runbisonpic apps are designed to function optimally when u
 Users are responsible for:
 
 1. Adherence to user manual.
-2. Ensure they are using the most up to date verison of the software. 
+2. Ensure they are using the most up to date version of the software. 
 
 In the event that users do not adhere to the guidelines specified in the user manual, there is no guarantee that the apps will function. Users may experience unexpected behavior, errors, or issues that could impact their experience.
 
