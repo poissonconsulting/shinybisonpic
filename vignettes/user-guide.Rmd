@@ -1,5 +1,5 @@
 ---
-title: "User Guide"
+title: "DRAFT - User Guide"
 output: pdf_document
 vignette: >
   %\VignetteIndexEntry{User Guide}
@@ -64,7 +64,7 @@ Once the data is uploaded, you can explore the subsequent tabs in any order that
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/shinybisonpic-data-upload.png")
 ```
-*<font size="-1">Figure 2. Data upload tab and opening screen of app.</font>*
+*<font size="-1">Figure 2. Upload Data tab and opening screen of app.</font>*
 
 When the app launches successfully you will see the data upload tab. 
 
@@ -110,7 +110,7 @@ knitr::include_graphics("images/shinybisonpic-data-upload-failure.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/shinybisonpic-data-upload-successful.png")
 ```
-*<font size="-1">Figure 4. Data upload is successful.</font>*
+*<font size="-1">Figure 4. Example of when the data upload is successful.</font>*
 
 - Review the data in the Uploaded data box for errors or issues before continuing onto the next tab.
   - You can: 
@@ -125,7 +125,7 @@ knitr::include_graphics("images/shinybisonpic-data-upload-successful.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/shinybisonpic-map-locations-point.png")
 ```
-*<font size="-1">Figure 5. Example of the Map Locations tab showing the points of each camera trap on the map. Location LOCID11 has been selected in the drop-down menu so is highlighted in yellow. 
+*<font size="-1">Figure 5. Example of the Map Locations tab showing the points of each camera trap on the map. Location LOCID11 has been selected in the drop-down menu so it is highlighted in yellow. 
 Clicking on a point (here, on location LOCID2) shows a pop-up with specific details about that location.</font>*
 
 The location_id’s from the location table will be displayed on the map.
@@ -158,6 +158,34 @@ There is no order to **(B)** or **(C)**, so these steps can be done in any order
   - Check that the location_id column in the location table has values.
 - Map is frozen.
   - Refresh your browser and upload the data again.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 #### Plot Data
 
@@ -220,6 +248,38 @@ knitr::include_graphics("images/runbisonpic-app-script.png")
 ```
 *<font size="-1">Figure 8. How to launch runbisonpic using code.</font>*
   
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+  
    - Going to the Addins button and selecting **Start runbisonpic app**
    
 ```{r out.width = '100%', echo = FALSE}
@@ -239,6 +299,18 @@ Since this is a different app the data needs to be uploaded into this app again.
 The first step of filling in the template and uploading the data is the same in both apps.
 The templates and data format is the same so you can use the template file in both apps. 
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 ### Detailed Steps 
 
 #### Data Upload
@@ -248,7 +320,7 @@ The templates and data format is the same so you can use the template file in bo
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/runbisonpic-data-upload-tab.png")
 ```
-*<font size="-1">Figure 10. Data upload tab and opening screen of app.</font>*
+*<font size="-1">Figure 10. Upload Data tab and opening screen of app.</font>*
 
 When the app launches successfully you will see this page. 
 
@@ -299,13 +371,43 @@ knitr::include_graphics("images/runbisonpic-data-upload-failure.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/runbisonpic-data-upload-successful.png")
 ```
-*<font size="-1">Figure 12. Data upload is successful.</font>*
+*<font size="-1">Figure 12. Example of when the data upload is successful.</font>*
 
 - Review the data in the Uploaded data box for errors or issues before continuing onto the next tab.
   - You can: 
     - Increase the number of entries you can see in the table by changing the value in **Show entries**.
     - Sort by the column by clicking on the column name.
     - Search for values by typing in the **Search:** field.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 
 #### Run Model
 
@@ -314,7 +416,7 @@ knitr::include_graphics("images/runbisonpic-data-upload-successful.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/runbisonpic-model-tab.png")
 ```
-*<font size="-1">Figure 13. Model tab before the Run button is pressed.</font>*
+*<font size="-1">Figure 13. Run Model tab before the Run button is pressed.</font>*
 
 **Usage** 
 
@@ -334,14 +436,14 @@ knitr::include_graphics("images/runbisonpic-model-tab.png")
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/runbisonpic-model-spinner.png")
 ```
-*<font size="-1">Figure 14. Model tab when the model is running. Users must wait until this screen is gone to continue.</font>*
+*<font size="-1">Figure 14. Example of when the model is running. Users must wait until the blue screen with the spinner is gone before they can continue to the next steps.</font>*
 
 &nbsp;
 
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/runbisonpic-successful-model.png")
 ```
-*<font size="-1">Figure 15. Model tab after a successful run of the model.</font>*
+*<font size="-1">Figure 15. Run Model tab after the model finishes running.</font>*
 
 - **(F)** Download the Analysis Object as an RDS file. 
   - This allows more advanced users to use the output of the model to generate their customized results. 
@@ -446,6 +548,26 @@ After a successful run of the model two download buttons will appear in the top 
 
 - If you set the thinning to 1 and model mode to quick you can get a quick run of the model. This can help to make sure there are no issues with the data before doing a report run that may take a day or more to run. 
 
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
 #### Results
 
 &nbsp;
@@ -453,7 +575,7 @@ After a successful run of the model two download buttons will appear in the top 
 ```{r out.width = '100%', echo = FALSE}
 knitr::include_graphics("images/runbisonpic-results.png")
 ```
-*<font size="-1">Figure 16. Results of the model run.</font>*
+*<font size="-1">Figure 16. Results tab which shows the results of the model run.</font>*
 
 **Usage**
 
@@ -530,7 +652,7 @@ There are hyperlinks embedded in the text of the User Guide, if the document is 
 
 ## Updates and Release Notes
 
-To read about the most recent updates go to the NEWS.md file of each package:
+To read about the most recent updates and changes to the software go to the NEWS.md file of each package:
 
 - [bisonpictools](https://github.com/poissonconsulting/bisonpictools/blob/main/NEWS.md)
 - [shinybisonpic](https://github.com/poissonconsulting/shinybisonpic/blob/main/NEWS.md)
