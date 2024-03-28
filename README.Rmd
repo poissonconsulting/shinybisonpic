@@ -41,6 +41,18 @@ launch_shinybisonpic()
 - View locations on the landscape
 - Explore sex-age ratios
 
+### User Guide
+
+To access the user guide go to XXXX (insert link).
+
+## bisonpic Suite
+
+`shinybisonpic` is part of the bisonpic suite of tools. 
+Other packages in this suite include:
+
+- [bisonpictools](https://github.com/poissonconsulting/bisonpictools)
+- [runbisonpic](https://github.com/poissonconsulting/runbisonpic)
+
 ## Contribution
 
 Please report any
