@@ -13,7 +13,7 @@ locations and the ratios of various sex-age groups.
 
 ### How to Install the R Package
 
-To install the developmental version from
+To install from
 [GitHub](https://github.com/poissonconsulting/shinybisonpic)
 
 ``` r
@@ -24,7 +24,6 @@ remotes::install_github("poissonconsulting/shinybisonpic")
 ### How to Launch the App with Code
 
 ``` r
-# install.packages("shinybisonpic")
 library(shinybisonpic)
 launch_shinybisonpic()
 ```

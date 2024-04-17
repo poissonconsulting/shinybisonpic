@@ -14,7 +14,7 @@ output: github_document
 
 ### How to Install the R Package
 
-To install the developmental version from
+To install from
 [GitHub](https://github.com/poissonconsulting/shinybisonpic)
 
 ```{r, eval=FALSE}
@@ -25,7 +25,6 @@ remotes::install_github("poissonconsulting/shinybisonpic")
 ### How to Launch the App with Code
 
 ```{r, eval=FALSE}
-# install.packages("shinybisonpic")
 library(shinybisonpic)
 launch_shinybisonpic()
 ```
