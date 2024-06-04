@@ -21,7 +21,7 @@ app_ui <- function() {
     footer = NULL,
     header = dashboardHeader(
       ... = div(
-        h3("Ronald Lake Wood Bison Camera-Based Demographic Data Exploration"),
+        h3("Wood Bison Camera-Based Demographic Data Exploration"),
         style = "vertical-align: baseline;"
       )
     ),
