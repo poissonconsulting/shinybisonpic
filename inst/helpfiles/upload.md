@@ -17,6 +17,8 @@ Get raw data into the app by filling out the template and uploading the file. Th
      - Correct the error.
      - Upload the corrected data.
      - Repeat until the file is successfully uploaded.
+     
+If desired, download an example dataset by clicking the **Download Example Data** button, then proceed with step 2 above to explore the app's functionality.
    
 ##### Required Data Format
 
