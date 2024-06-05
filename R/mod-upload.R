@@ -27,7 +27,10 @@ mod_upload_ui <- function(id, label = "upload") {
     downloadButton(ns("download_template"), "Template"),
     br(), br(),
     tags$label("2. Upload data"),
-    uiOutput(ns("upload_bison"))
+    uiOutput(ns("upload_bison")),
+    br(), br(), br(), br(),
+    tags$label("Download example data set"), br(),
+    downloadButton(ns("download_example"), "Example Data")
   )
 
   fluidRow(
@@ -73,6 +76,22 @@ mod_upload_server <- function(id) {
       filename = "template-bison.xlsx",
       content = function(file) {
         writexl::write_xlsx(rv$template_dl, file)
+      }
+    )
+
+    # read in example data
+    path2 <- system.file(
+      package = "bisonpictools",
+      "example-data/data-raw.xlsx"
+    )
+    sheets2 <- readxl::excel_sheets(path2)
+    example_data <- lapply(sheets2, function(x) readxl::read_excel(path2, x))
+    names(example_data) <- sheets2
+
+    output$download_example <- downloadHandler(
+      filename = "wood-bison-example-data.xlsx",
+      content = function(file) {
+        writexl::write_xlsx(example_data, file)
       }
     )
 
