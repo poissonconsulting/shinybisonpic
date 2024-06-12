@@ -240,7 +240,7 @@ mod_plot_server <- function(id, upload) {
     })
 
     output$ui_plot <- renderUI({
-      plotOutput(ns("plot"))
+      plotOutput(ns("plot"), height = "600px")
     })
 
     output$download_button <- renderUI({
