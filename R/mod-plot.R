@@ -22,6 +22,20 @@ mod_plot_ui <- function(id, label = "plot") {
       content = "plot",
       size = "l"
     ),
+    selectInput(
+      ns("select_locations"),
+      label = "Location",
+      choices = NULL,
+      selected = NULL,
+      multiple = TRUE
+    ),
+    selectInput(
+      ns("select_study_years"),
+      label = "Study Year",
+      choices = NULL,
+      selected = NULL,
+      multiple = TRUE
+    ),
     tags$h5("Numerator"),
     br(),
     div(
@@ -63,12 +77,32 @@ mod_plot_server <- function(id, upload) {
       event = NULL,
       numerator = NULL,
       denominator = NULL,
-      plot = NULL
+      plot = NULL,
+      select_locations = NULL,
+      select_study_years = NULL
     )
 
     observe({
+      req(upload$data)
       rv$location <- upload$data$location
       rv$event <- upload$data$event
+      rv$select_locations <- sort(unique(rv$location$location_id))
+      rv$select_study_years <- sort(bisonpictools::bpt_study_years(rv$event))
+    })
+
+    observeEvent(upload$data, {
+      updateSelectInput(
+        session = session,
+        inputId = "select_locations",
+        choices = rv$select_locations,
+        selected = NULL
+      )
+      updateSelectInput(
+        session = session,
+        inputId = "select_study_years",
+        choices = rv$select_study_years,
+        selected = NULL
+      )
     })
 
     output$ui_select_numerator_m <- renderUI({
@@ -167,17 +201,46 @@ mod_plot_server <- function(id, upload) {
       req(rv$numerator)
       req(rv$denominator)
 
-      rv$plot <- bisonpictools::bpt_plot_ratios(
-        rv$event,
-        rv$location,
-        numerator = rv$numerator,
-        denominator = rv$denominator
+      if (is.null(input$select_study_years)) {
+        study_year_option <- rv$select_study_years
+      } else {
+        study_year_option <- input$select_study_years
+      }
+
+      if (is.null(input$select_locations)) {
+        location_option <- rv$select_locations
+      } else {
+        location_option <- input$select_locations
+      }
+
+      rv$plot <- try(
+        bisonpictools::bpt_plot_ratios(
+          rv$event,
+          rv$location,
+          numerator = rv$numerator,
+          denominator = rv$denominator,
+          study_years = study_year_option,
+          locations = location_option
+        ),
+        silent = TRUE
       )
+
+      if (is_try_error(rv$plot)) {
+        msg <- gsub("^Error (.*?)( : )", "", rv$plot[1])
+        msg <- gsub("Error : ", "", msg)
+        showModal(
+          modalDialog(
+            msg,
+            footer = modalButton("Got it")
+          )
+        )
+      }
+
       rv$plot
     })
 
     output$ui_plot <- renderUI({
-      plotOutput(ns("plot"))
+      plotOutput(ns("plot"), height = "600px")
     })
 
     output$download_button <- renderUI({
