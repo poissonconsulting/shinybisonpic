@@ -22,20 +22,6 @@ mod_plot_ui <- function(id, label = "plot") {
       content = "plot",
       size = "l"
     ),
-    selectInput(
-      ns("select_locations"),
-      label = "Location",
-      choices = NULL,
-      selected = NULL,
-      multiple = TRUE
-    ),
-    selectInput(
-      ns("select_study_years"),
-      label = "Study Year",
-      choices = NULL,
-      selected = NULL,
-      multiple = TRUE
-    ),
     tags$h5("Numerator"),
     br(),
     div(
@@ -51,6 +37,20 @@ mod_plot_ui <- function(id, label = "plot") {
       uiOutput(ns("ui_select_denominator_m")),
       uiOutput(ns("ui_select_denominator_f")),
       uiOutput(ns("ui_select_denominator_u"))
+    ),
+    selectInput(
+      ns("select_locations"),
+      label = "Location",
+      choices = NULL,
+      selected = NULL,
+      multiple = TRUE
+    ),
+    selectInput(
+      ns("select_study_years"),
+      label = "Study Year",
+      choices = NULL,
+      selected = NULL,
+      multiple = TRUE
     )
   )
 
