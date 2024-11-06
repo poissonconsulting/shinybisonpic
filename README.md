@@ -4,6 +4,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/shinybisonpic/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/poissonconsulting/shinybisonpic/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/shinybisonpic)
 <!-- badges: end -->
 
 `shinybisonpic` is a Shiny app for visualizing wood bison camera trap
@@ -41,12 +43,19 @@ launch_shinybisonpic()
 
 ### User Guide
 
-To access the user guide go to XXXX (insert link).
+To access the user guide click \[here\]
+(<https://poissonconsulting.github.io/bisonpicsuite/bisonpic-user-guide.html>).
+Additional information is available from the
+[`bisonpicsuite`](https://poissonconsulting.github.io/bisonpicsuite/)
+and
+[`bisonpictools`](https://poissonconsulting.github.io/bisonpictools/)
+websites.
 
 ## bisonpic Suite
 
-`shinybisonpic` is part of the bisonpic suite of tools. Other packages
-in this suite include:
+`shinybisonpic` is part of the [bisonpic
+suite](https://github.com/poissonconsulting/bisonpicsuite) of tools.
+Other packages in this suite include:
 
 - [bisonpictools](https://github.com/poissonconsulting/bisonpictools)
 - [runbisonpic](https://github.com/poissonconsulting/runbisonpic)
