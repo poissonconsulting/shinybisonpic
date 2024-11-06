@@ -38,8 +38,7 @@ Imports:
     shinyhelper,
     writexl
 Suggests: 
-    rmarkdown,
-    testthat (>= 3.0.0)
+    rmarkdown
 Remotes:
     poissonconsulting/bisonpictools
 Encoding: UTF-8
