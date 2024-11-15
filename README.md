@@ -41,12 +41,21 @@ launch_shinybisonpic()
 
 ### User Guide
 
-To access the user guide go to XXXX (insert link).
+See the [user
+guide](https://poissonconsulting.github.io/bisonpicsuite/bisonpic-user-guide.html)
+for step-by-step instructions on how to use the app.
+
+Additional information is available from the
+[`bisonpicsuite`](https://poissonconsulting.github.io/bisonpicsuite/)
+and
+[`bisonpictools`](https://poissonconsulting.github.io/bisonpictools/)
+websites.
 
 ## bisonpic Suite
 
-`shinybisonpic` is part of the bisonpic suite of tools. Other packages
-in this suite include:
+`shinybisonpic` is part of the [bisonpic
+suite](https://github.com/poissonconsulting/bisonpicsuite) of tools.
+Other packages in this suite include:
 
 - [bisonpictools](https://github.com/poissonconsulting/bisonpictools)
 - [runbisonpic](https://github.com/poissonconsulting/runbisonpic)

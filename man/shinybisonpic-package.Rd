@@ -8,6 +8,15 @@
 \description{
 This app is a wrapper on the `bisonpictools` R package which provides non R user's a way to visualize wood bison camera trap data. Camera trap data is uploaded and then visualized spatially by viewing the locations on a map and being able to explore the ratios between different combinations of sex and life stages.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/poissonconsulting/shinybisonpic}
+  \item \url{https://poissonconsulting.github.io/shinybisonpic/}
+  \item Report bugs at \url{https://github.com/poissonconsulting/shinybisonpic/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
 
