@@ -19,7 +19,8 @@ Description: This app is a wrapper on the `bisonpictools` R package which
     viewing the locations on a map and being able to explore the ratios between
     different combinations of sex and life stages. 
 License: Apache License (>= 2)
-URL: https://github.com/poissonconsulting/shinybisonpic, https://poissonconsulting.github.io/shinybisonpic/
+URL: https://github.com/poissonconsulting/shinybisonpic, 
+    https://poissonconsulting.github.io/shinybisonpic/
 BugReports: https://github.com/poissonconsulting/shinybisonpic/issues
 Depends:
     R (>= 4.1)
