@@ -10,7 +10,7 @@
 
 Each tab has its own help information which can be accessed by clicking on the question mark circle at the top of the instruction box of the tab. 
 
-See the [detailed user guide](https://poissonconsulting.github.io/bisonpicsuite/bisonpic-user-guide.html) for step-by-step instructions.
+See the [detailed user guide](https://poissonconsulting.github.io/bisonpicsuite/articles/bisonpic-user-guide.html) for step-by-step instructions.
 
 **Please fix the following issue...**
 
