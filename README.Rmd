@@ -22,6 +22,11 @@ To install from
 remotes::install_github("poissonconsulting/shinybisonpic")
 ```
 
+### How to Access the App Online
+
+The `shinybisonpic` app is hosted online.
+To access the app, open a web browser and go to  [https://poissonconsulting.shinyapps.io/shinybisonpic/](https://poissonconsulting.shinyapps.io/shinybisonpic/).
+
 ### How to Launch the App with Code
 
 ```{r, eval=FALSE}
