@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# shinybisonpic 0.5.0
+
+- Update package documentation.
+- Add dependency on R >= 4.1
+
 # shinybisonpic 0.4.0
 
 - Re-order numerator/denominator and study year/location select boxes in plot tab.
