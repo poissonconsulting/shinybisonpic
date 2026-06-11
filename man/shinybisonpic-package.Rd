@@ -20,12 +20,17 @@ Useful links:
 \author{
 \strong{Maintainer}: Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
 
+Authors:
+\itemize{
+  \item Ayla Pearson \email{ayla@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-7388-1222}{ORCID})
+}
+
 Other contributors:
 \itemize{
   \item Andrea Kortello \email{andrea@poissonconsulting.ca} (\href{https://orcid.org/0000-0001-8047-3331}{ORCID}) [contributor]
   \item Nicole Hill \email{nicole@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7623-2153}{ORCID}) [contributor]
   \item Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID}) [contributor]
-  \item Troy Hegel \email{Troy.Hegel@gov.ab.ca} [contributor]
+  \item Troy Hegel \email{Troy.Hegel@gov.ab.ca} (\href{https://orcid.org/0000-0001-5363-7716}{ORCID}) [contributor]
   \item Province of Alberta [copyright holder]
 }
 
