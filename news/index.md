@@ -1,5 +1,14 @@
 # Changelog
 
+## shinybisonpic 0.5.0.9000 (2026-06-11)
+
+- Add/correct author ORCID(s) in DESCRIPTION
+  ([\#52](https://github.com/poissonconsulting/shinybisonpic/issues/52)).
+- Add CODEOWNERS assigning [@aylapear](https://github.com/aylapear)
+  ([\#51](https://github.com/poissonconsulting/shinybisonpic/issues/51)).
+- Remove old expired token
+  ([\#50](https://github.com/poissonconsulting/shinybisonpic/issues/50))
+
 ## shinybisonpic 0.5.0
 
 - Update package documentation.

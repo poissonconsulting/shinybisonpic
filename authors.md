@@ -18,7 +18,7 @@
   Thorley](https://www.poissonconsulting.ca/author/joe-thorley/)**.
   Contributor. [](https://orcid.org/0000-0002-7683-4592)
 
-- **Troy Hegel**. Contributor.
+- **Troy Hegel**. Contributor. [](https://orcid.org/0000-0001-5363-7716)
 
 - **Province of Alberta**. Copyright holder.
 
@@ -28,13 +28,13 @@ Source:
 [`DESCRIPTION`](https://github.com/poissonconsulting/shinybisonpic/blob/main/DESCRIPTION)
 
 Pearson A (2026). *shinybisonpic: Shiny App for Visualizing and Cleaning
-Wood Bison Camera Trap Data*. R package version 0.5.0,
+Wood Bison Camera Trap Data*. R package version 0.5.0.9000,
 <https://github.com/poissonconsulting/shinybisonpic>.
 
     @Manual{,
       title = {shinybisonpic: Shiny App for Visualizing and Cleaning Wood Bison Camera Trap Data},
       author = {Ayla Pearson},
       year = {2026},
-      note = {R package version 0.5.0},
+      note = {R package version 0.5.0.9000},
       url = {https://github.com/poissonconsulting/shinybisonpic},
     }
