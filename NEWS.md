@@ -1,5 +1,11 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# shinybisonpic 0.5.0.9000 (2026-06-11)
+
+- Add/correct author ORCID(s) in DESCRIPTION (#52).
+- Add CODEOWNERS assigning @aylapear (#51).
+- Remove old expired token (#50)
+
 # shinybisonpic 0.5.0
 
 - Update package documentation.
