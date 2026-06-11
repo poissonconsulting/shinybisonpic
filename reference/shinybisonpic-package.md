@@ -22,6 +22,11 @@ Useful links:
 **Maintainer**: Ayla Pearson <ayla@poissonconsulting.ca>
 ([ORCID](https://orcid.org/0000-0001-7388-1222))
 
+Authors:
+
+- Ayla Pearson <ayla@poissonconsulting.ca>
+  ([ORCID](https://orcid.org/0000-0001-7388-1222))
+
 Other contributors:
 
 - Andrea Kortello <andrea@poissonconsulting.ca>
@@ -33,6 +38,7 @@ Other contributors:
 - Joe Thorley <joe@poissonconsulting.ca>
   ([ORCID](https://orcid.org/0000-0002-7683-4592)) \[contributor\]
 
-- Troy Hegel <Troy.Hegel@gov.ab.ca> \[contributor\]
+- Troy Hegel <Troy.Hegel@gov.ab.ca>
+  ([ORCID](https://orcid.org/0000-0001-5363-7716)) \[contributor\]
 
 - Province of Alberta \[copyright holder\]
