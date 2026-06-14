@@ -1,5 +1,10 @@
 # Changelog
 
+## shinybisonpic 0.5.0.9001 (2026-06-14)
+
+- Remove render-readme.yaml workflow
+  ([\#53](https://github.com/poissonconsulting/shinybisonpic/issues/53)).
+
 ## shinybisonpic 0.5.0.9000 (2026-06-11)
 
 - Add/correct author ORCID(s) in DESCRIPTION
