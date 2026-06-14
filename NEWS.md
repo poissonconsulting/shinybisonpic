@@ -1,5 +1,9 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# shinybisonpic 0.5.0.9001 (2026-06-14)
+
+- Remove render-readme.yaml workflow (#53).
+
 # shinybisonpic 0.5.0.9000 (2026-06-11)
 
 - Add/correct author ORCID(s) in DESCRIPTION (#52).
