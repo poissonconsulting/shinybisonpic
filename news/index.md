@@ -1,5 +1,10 @@
 # Changelog
 
+## shinybisonpic 0.5.0.9002 (2026-06-18)
+
+- Add fledge-bump workflow
+- Add fledge-tag-on-merge workflow
+
 ## shinybisonpic 0.5.0.9001 (2026-06-14)
 
 - Remove render-readme.yaml workflow
