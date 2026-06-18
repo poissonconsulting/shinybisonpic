@@ -1,3 +1,11 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# shinybisonpic 0.5.0.9002 (2026-06-18)
+
+* Add fledge-bump workflow
+* Add fledge-tag-on-merge workflow
+
+
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
 # shinybisonpic 0.5.0.9001 (2026-06-14)
