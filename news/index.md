@@ -1,5 +1,9 @@
 # Changelog
 
+## shinybisonpic 0.5.0.9003 (2026-06-23)
+
+- Same as previous version.
+
 ## shinybisonpic 0.5.0.9002 (2026-06-18)
 
 - Add fledge-bump workflow
