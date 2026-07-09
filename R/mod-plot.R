@@ -58,7 +58,8 @@ mod_plot_ui <- function(id, label = "plot") {
     width = 12,
     title = "Plots",
     uiOutput(ns("download_button")),
-    br(), br(),
+    br(),
+    br(),
     uiOutput(ns("ui_plot"))
   )
 
@@ -110,8 +111,12 @@ mod_plot_server <- function(id, upload) {
         ns("select_numerator_m"),
         label = NULL,
         choices = c(
-          "male calf", "male yearling", "male adult", "male unknown",
-          "male 2 yr old", "male 3 yr old"
+          "male calf",
+          "male yearling",
+          "male adult",
+          "male unknown",
+          "male 2 yr old",
+          "male 3 yr old"
         )
       )
     })
@@ -121,7 +126,10 @@ mod_plot_server <- function(id, upload) {
         ns("select_numerator_f"),
         label = NULL,
         choices = c(
-          "female calf", "female yearling", "female adult", "female unknown"
+          "female calf",
+          "female yearling",
+          "female adult",
+          "female unknown"
         )
       )
     })
@@ -131,7 +139,10 @@ mod_plot_server <- function(id, upload) {
         ns("select_numerator_u"),
         label = NULL,
         choices = c(
-          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
+          "unknown calf",
+          "unknown yearling",
+          "unknown adult",
+          "unknown unknown"
         )
       )
     })
@@ -155,8 +166,12 @@ mod_plot_server <- function(id, upload) {
         ns("select_denominator_m"),
         label = NULL,
         choices = c(
-          "male calf", "male yearling", "male adult", "male unknown",
-          "male 2 yr old", "male 3 yr old"
+          "male calf",
+          "male yearling",
+          "male adult",
+          "male unknown",
+          "male 2 yr old",
+          "male 3 yr old"
         )
       )
     })
@@ -166,7 +181,10 @@ mod_plot_server <- function(id, upload) {
         ns("select_denominator_f"),
         label = NULL,
         choices = c(
-          "female calf", "female yearling", "female adult", "female unknown"
+          "female calf",
+          "female yearling",
+          "female adult",
+          "female unknown"
         )
       )
     })
@@ -176,7 +194,10 @@ mod_plot_server <- function(id, upload) {
         ns("select_denominator_u"),
         label = NULL,
         choices = c(
-          "unknown calf", "unknown yearling", "unknown adult", "unknown unknown"
+          "unknown calf",
+          "unknown yearling",
+          "unknown adult",
+          "unknown unknown"
         )
       )
     })
@@ -256,8 +277,11 @@ mod_plot_server <- function(id, upload) {
           "'",
           "",
           paste0(
-            "Numerator: ", chk::cc(rv$numerator, ellipsis = 20L), "\n",
-            "Denominator: ", chk::cc(rv$denominator, ellipsis = 20L)
+            "Numerator: ",
+            chk::cc(rv$numerator, ellipsis = 20L),
+            "\n",
+            "Denominator: ",
+            chk::cc(rv$denominator, ellipsis = 20L)
           )
         )
 

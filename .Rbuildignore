@@ -16,3 +16,5 @@
 ^app.R$
 ^CODE_OF_CONDUCT\.md$
 ^rsconnect$
+^[.]?air[.]toml$
+^\.vscode$

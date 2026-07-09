@@ -23,13 +23,19 @@ mod_upload_ui <- function(id, label = "upload") {
       size = "l"
     ),
     br(),
-    tags$label("1. Download and fill in template"), br(),
+    tags$label("1. Download and fill in template"),
+    br(),
     downloadButton(ns("download_template"), "Template"),
-    br(), br(),
+    br(),
+    br(),
     tags$label("2. Upload data"),
     uiOutput(ns("upload_bison")),
-    br(), br(), br(), br(),
-    tags$label("Download example data set"), br(),
+    br(),
+    br(),
+    br(),
+    br(),
+    tags$label("Download example data set"),
+    br(),
     downloadButton(ns("download_example"), "Example Data")
   )
 
@@ -70,7 +76,6 @@ mod_upload_server <- function(id) {
 
       rv$template_dl <- template_dl
     })
-
 
     output$download_template <- downloadHandler(
       filename = "template-bison.xlsx",
@@ -160,7 +165,8 @@ mod_upload_server <- function(id) {
     })
 
     # create and display uploaded data
-    observeEvent(input$upload,
+    observeEvent(
+      input$upload,
       {
         sheets_data <- readxl::excel_sheets(input$upload$datapath)
         try_sheet_names <- try(
