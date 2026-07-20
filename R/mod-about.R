@@ -24,7 +24,6 @@ mod_about_ui <- function(id, label = "about") {
 }
 
 
-
 mod_about_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns
@@ -38,7 +37,8 @@ mod_about_server <- function(id) {
     output$text_1 <- renderText({
       paste0(
         "bisonpictools version: ",
-        as.character(utils::packageVersion("bisonpictools")), "<br/>",
+        as.character(utils::packageVersion("bisonpictools")),
+        "<br/>",
         "shinybisonpic version: ",
         as.character(utils::packageVersion("shinybisonpic"))
       )

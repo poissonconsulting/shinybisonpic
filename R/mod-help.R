@@ -23,7 +23,6 @@ mod_help_ui <- function(id, label = "help") {
 }
 
 
-
 mod_help_server <- function(id) {
   moduleServer(id, function(input, output, session) {
     ns <- session$ns

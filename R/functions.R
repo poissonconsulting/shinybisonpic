@@ -112,8 +112,11 @@ is_try_error <- function(x) {
 
 # Check Functions ----
 
-check_modal <- function(check, ns,
-                        title = "Please fix the following issue ...") {
+check_modal <- function(
+  check,
+  ns,
+  title = "Please fix the following issue ..."
+) {
   msg <- gsub("^Error (.*?)( : )", "", check[1])
   msg <- gsub("Error : ", "", msg)
   modalDialog(
