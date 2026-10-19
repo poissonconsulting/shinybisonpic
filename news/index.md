@@ -1,5 +1,10 @@
 # Changelog
 
+## shinybisonpic 0.5.0.9005 (2026-10-19)
+
+- Standardize CI (tier: unimportant) - update fledge system
+  ([\#64](https://github.com/poissonconsulting/shinybisonpic/issues/64)).
+
 ## shinybisonpic 0.5.0.9004 (2026-07-20)
 
 - Same as previous version.
