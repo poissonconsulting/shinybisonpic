@@ -1,4 +1,14 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# shinybisonpic 0.5.0.9005 (2026-10-19)
+
+- Standardize CI (tier: unimportant) - update fledge system (#64).
+
+
+# shinybisonpic 0.5.0.9004 (2026-07-20)
+
+- Same as previous version.
+
 
 # shinybisonpic 0.5.0.9003 (2026-06-23)
 
