@@ -28,13 +28,13 @@ Source:
 [`DESCRIPTION`](https://github.com/poissonconsulting/shinybisonpic/blob/main/DESCRIPTION)
 
 Pearson A (2026). *shinybisonpic: Shiny App for Visualizing and Cleaning
-Wood Bison Camera Trap Data*. R package version 0.5.0.9005,
+Wood Bison Camera Trap Data*. R package version 0.5.0.9006,
 <https://github.com/poissonconsulting/shinybisonpic>.
 
     @Manual{,
       title = {shinybisonpic: Shiny App for Visualizing and Cleaning Wood Bison Camera Trap Data},
       author = {Ayla Pearson},
       year = {2026},
-      note = {R package version 0.5.0.9005},
+      note = {R package version 0.5.0.9006},
       url = {https://github.com/poissonconsulting/shinybisonpic},
     }
