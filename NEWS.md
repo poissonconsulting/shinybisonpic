@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# shinybisonpic 0.5.0.9006 (2026-11-19)
+
+- Merge branch 'main' of github.com:poissonconsulting/shinybisonpic.
+
+
 # shinybisonpic 0.5.0.9005 (2026-10-19)
 
 - Standardize CI (tier: unimportant) - update fledge system (#64).
